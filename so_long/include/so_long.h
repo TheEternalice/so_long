@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/19 14:52:18 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:27:50 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
+typedef struct s_sentinel
+{
+	int	*santinel;
+}	t_sentinel;
+
+typedef struct s_game
+{
+	int	coin;
+	int	exit;
+	int	player;
+}	t_game;
+
 typedef struct s_struct
 {
 	void	*mlx;
@@ -38,9 +50,11 @@ typedef struct s_struct
 }	t_struct;
 
 size_t	ft_strlen(char *str);
+int		map_open(char *argv);
+int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
-int		ft_strncmp(char *s1, char *s2, size_t n);
 int		check_error(int argc, char **argv);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 char	*get_next_line(int fd);
 
 #endif
