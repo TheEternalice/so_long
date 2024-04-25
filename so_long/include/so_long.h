@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/23 15:27:50 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/25 14:57:22 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ typedef struct s_struct
 }	t_struct;
 
 size_t	ft_strlen(char *str);
-int		map_open(char *argv);
+int		get_n_line(char *argv);
+int		map_open(char *argv, t_struct *stru);
 int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
 int		check_error(int argc, char **argv);

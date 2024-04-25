@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/23 15:07:48 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:10:50 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,58 +22,71 @@ int	check_extantion(char **argv)
 	return (1);
 }
 
-int	map_open(char *argv)
+static int	liner(char *line, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (line)
+	{
+		free(line);
+		i++;
+		line = get_next_line(fd);
+	}
+	return (i);
+}
+
+int	get_n_line(char *argv)
+{
+	int		fd;
+	int		res;
+	int		fdd;
+	char	*line;
+
+	fdd = open(argv, __O_DIRECTORY);
+	if (fdd != -1)
+	{
+		close(fdd);
+		return (0);
+	}
+	close(fdd);
+	fd = open(argv, O_RDONLY);
+	if (!fd)
+	{
+		close(fd);
+		return (0);
+	}
+	line = get_next_line(fd);
+	res = liner(line, fd);
+	close(fd);
+	return (res);
+}
+
+int	map_open(char *argv, t_struct *stru)
 {
 	int			fd;
 	int			i;
-	t_struct	*stru;
+	char		*line;
 
 	i = 0;
-	fd = open(argv, O_RDONLY | O_TRUNC);
+	fd = open(argv, O_RDONLY);
 	if (!fd)
 		return (1);
-	stru->map[i] = get_next_line(fd);
+	stru->map = malloc(sizeof(char *) * get_n_line(argv));
 	if (!stru->map)
+		return (1);
+	line = get_next_line(fd);
+	if (!line)
 	{
 		close(fd);
 		return (1);
 	}
-	while (stru->map[i])
+	while (line)
 	{
-		stru->map[i] = get_next_line(fd);
+		stru->map[i] = line;
 		i++;
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (0);
-}
-
-static int	is_validarg(char c)
-{
-	return (c == '0' || c == '1' || c == 'P' || c == 'C' || c == 'E');
-}
-
-int	is_rectangle(t_struct *stru)
-{
-	int	i;
-	int	j;
-	int	leni;
-	int	lenj;
-
-	i = 0;
-	j = 1;
-	while (stru->map[i] && stru->map[j])
-	{
-		leni = ft_strlen(stru->map[i]);
-		lenj = ft_strlen(stru->map[j]);
-		if (stru->map[i][leni] != stru->map[j][lenj])
-			return (1);
-		i++;
-		j++;
-	}
-	return (0);
-}
-
-void	flood_fill()
-{
-	
 }

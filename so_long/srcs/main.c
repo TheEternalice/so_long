@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/23 14:52:15 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/25 13:00:30 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 
 	if (check_error(argc, argv))
 		return (1);
-	if (map_open(argv[1]))
+	if (map_open(argv[1], &stru))
 		return (1);
-	if (is_rectangle(stru.map))
+	if (is_rectangle(&stru))
 		return (write(2, "Invalide map\n", 13), 1);
 	stru.mlx = mlx_init();
 	if (!stru.mlx)

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/23 12:19:46 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/25 15:08:06 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,34 @@ int	check_error(int argc, char **argv)
 		return (write(2, "Invalide file name\n", 19), 1);
 	return (0);
 }
+
+int	is_rectangle(t_struct *stru)
+{
+	int	i;
+	int	j;
+	int	leni;
+	int	lenj;
+
+	i = 0;
+	j = 1;
+	while (stru->map[i] && stru->map[j])
+	{
+		leni = ft_strlen(stru->map[i]);
+		lenj = ft_strlen(stru->map[j]);
+		if (stru->map[i][leni] != stru->map[j][lenj])
+			return (1);
+		i++;
+		j++;
+	}
+	return (0);
+}
+
+// static int	is_validarg(char c)
+// {
+// 	return (c == '0' || c == '1' || c == 'P' || c == 'C' || c == 'E');
+// }
+
+// void	flood_fill()
+// {
+	
+// }
