@@ -1,4 +1,4 @@
-SRCS		=	./srcs/main.c ./srcs/error.c ./srcs/parsing.c ./srcs/libft_utils.c ./srcs/gnl.c
+SRCS		=	./srcs/main.c ./srcs/error.c ./srcs/parsing.c ./srcs/libft_utils.c ./srcs/gnl.c ./srcs/list.c
 
 OBJS		=	$(SRCS:.c=.o)
 

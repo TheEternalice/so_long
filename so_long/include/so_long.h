@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/25 14:57:22 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:44:22 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,19 @@ typedef struct s_struct
 	void	*img;
 	void	*mlx_win;
 	char	**map;
+	t_game	*game;
 }	t_struct;
 
 size_t	ft_strlen(char *str);
 int		get_n_line(char *argv);
-int		map_open(char *argv, t_struct *stru);
+int		check_args(t_struct *stru);
 int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
 int		check_error(int argc, char **argv);
+int		map_open(char *argv, t_struct *stru);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 char	*get_next_line(int fd);
+void	init_stru(t_struct *stru);
+void	exit_free(t_struct *stru, char *message, int num);
 
 #endif
