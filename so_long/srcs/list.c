@@ -6,11 +6,18 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/25 13:06:01 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:43:29 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	init_stru(t_struct *stru)
+{
+	stru->game->coin = 0;
+	stru->game->player = 0;
+	stru->game->exit = 0;
+}
 
 void	free_struct(t_struct *stru)
 {
@@ -26,4 +33,11 @@ void	free_struct(t_struct *stru)
 		}
 		free(stru->map);
 	}
+}
+
+void	exit_free(t_struct *stru, char *message, int num)
+{
+	free_struct(stru);
+	write(2, message, ft_strlen(message));
+	exit(num);
 }
