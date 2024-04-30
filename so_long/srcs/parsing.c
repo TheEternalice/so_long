@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/26 10:20:09 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/29 10:21:39 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	get_n_line(char *argv)
 		close(fdd);
 		return (0);
 	}
-	close(fdd);
 	fd = open(argv, O_RDONLY);
 	if (!fd)
 	{

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/26 15:46:09 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/30 11:34:58 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (map_open(argv[1], &stru))
 		return (free(stru.map), write(2, "Error dir found or no map\n", 27), 1);
-	if (is_rectangle(&stru))
+	if (is_rectangle(&stru) || is_close(&stru))
 		exit_free(&stru, "Invalide map\n", 1);
 	if (check_args(&stru))
 		exit_free(&stru, "Invalide map arg\n", 1);

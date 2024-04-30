@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/26 15:46:18 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/04/30 15:40:05 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 static int	is_validarg(char c, t_struct *stru)
 {
 	if (c == 'P')
-		stru->game->player++;
+		stru->game.player++;
 	else if (c == 'E')
-		stru->game->exit++;
+		stru->game.exit++;
 	else if (c == 'C')
-		stru->game->coin++;
+		stru->game.coin++;
 	return (c == '0' || c == '1' || c == 'P' || c == 'C' || c == 'E');
 }
 
@@ -33,7 +33,7 @@ int	check_args(t_struct *stru)
 	while (stru->map[i])
 	{
 		j = 0;
-		while (stru->map[i][j])
+		while (stru->map[i][j] && stru->map[i][j] != '\n')
 		{
 			if (!is_validarg(stru->map[i][j], stru))
 				return (1);
@@ -41,7 +41,7 @@ int	check_args(t_struct *stru)
 		}
 		i++;
 	}
-	if (stru->game->player != 1 || stru->game->exit != 1)
+	if (stru->game.player != 1 || stru->game.exit != 1)
 		return (1);
 	return (0);
 }
@@ -81,6 +81,28 @@ int	is_rectangle(t_struct *stru)
 	return (0);
 }
 
-// void	flood_fill()
-// {
-// }
+int	is_close(t_struct *stru)
+{
+	int	i;
+	int	j;
+	int	max;
+
+	i = 1;
+	j = 0;
+	max = 0;
+	while (stru->map[max + 1])
+		max++;
+	while (stru->map[0][j + 1] && stru->map[0][j + 1] != '\n')
+	{
+		if (stru->map[0][j] != '1' || stru->map[max][j] != '1')
+			return (1);
+		j++;
+	}
+	while (stru->map[i] && i < max)
+	{
+		if (stru->map[i][0] != '1' || stru->map[i][j] != '1')
+			return (1);
+		i++;
+	}
+	return (0);
+}
