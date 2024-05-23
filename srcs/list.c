@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/08 13:48:41 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/05/23 13:42:02 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_stru(t_struct *stru)
 {
+	stru->frames = 0;
 	stru->game.coin = 0;
 	stru->game.player = 0;
 	stru->game.exit = 0;
