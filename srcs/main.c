@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/23 13:37:10 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:04:59 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 	stru.player[3] = mlx_xpm_file_to_image(stru.mlx, "./sprites/druid3.xpm", &wh, &he);
 	if (!stru.player[3])
 		return (write(2, "mlx file to image fail\n", 23));
+	stru.start = clock();
 	mlx_loop_hook(stru.mlx, &looped, &stru);
 	mlx_hook(stru.mlx_win, DestroyNotify, NoEventMask, &quit, &stru);
 	mlx_hook(stru.mlx_win, KeyPress, KeyPressMask, &keys, &stru);

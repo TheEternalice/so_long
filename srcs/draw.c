@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:38:14 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/23 13:41:43 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/05/24 14:39:30 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,15 @@ void	draw_sprite(t_struct *stru, t_img *img, int x, int y)
 
 int	looped(t_struct *stru)
 {
-	image_printer(stru);
-	draw_sprite(stru, stru->player[stru->frames % 4], 0, 0);
-	stru->frames++;
-	mlx_put_image_to_window(stru->mlx, stru->mlx_win, stru->canva, 0, 0);
+	stru->end = clock();
+	unsigned long millis = (stru->end - stru->start) * 1000 / CLOCKS_PER_SEC;
+	if (millis >= 55)
+	{
+		image_printer(stru);
+		draw_sprite(stru, stru->player[stru->frames % 4], 0, 0);
+		stru->frames++;
+		mlx_put_image_to_window(stru->mlx, stru->mlx_win, stru->canva, 0, 0);
+		stru->start = clock();
+	}
 	return (0);
 }
