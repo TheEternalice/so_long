@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:38:14 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/24 14:39:30 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/05/27 15:33:21 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	draw_sprite(t_struct *stru, t_img *img, int x, int y)
 			if (j + y < 0 || j + y >= (stru->game.y + 1) * 64
 				|| i + x < 0 || i + x >= (stru->game.x + 1) * 64)
 				continue ;
-			color = ((int *)img->data)[(int)(j) *img->width + (int)(i)];
+			color = ((int *)img->data)[(j) * img->width + (i)];
 			if (color == 0xFF000000)
 				continue ;
 			((int *)stru->canva->data)[(y + j) * stru->canva->width
@@ -59,8 +59,10 @@ void	draw_sprite(t_struct *stru, t_img *img, int x, int y)
 
 int	looped(t_struct *stru)
 {
+	unsigned long	millis;
+
 	stru->end = clock();
-	unsigned long millis = (stru->end - stru->start) * 1000 / CLOCKS_PER_SEC;
+	millis = (stru->end - stru->start) * 1000 / CLOCKS_PER_SEC;
 	if (millis >= 55)
 	{
 		image_printer(stru);
