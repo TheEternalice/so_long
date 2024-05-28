@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/27 15:43:59 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/05/28 11:15:49 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
 int		keys(int val, t_struct *stru);
 int		map_open(char *argv, t_struct *stru);
-int		sprites0(t_struct *stru);
+int		sprites_p0(t_struct *stru);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 int		check_error(int argc, char **argv, t_struct *stru);
 void	init_stru(t_struct *stru);

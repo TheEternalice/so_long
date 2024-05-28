@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/27 15:26:04 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/05/28 15:50:02 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (constructor(&stru))
 		return (1);
-	if (sprites0(&stru))
+	if (sprites_init(&stru))
 		return (1);
 	stru.start = clock();
 	mlx_loop_hook(stru.mlx, &looped, &stru);
