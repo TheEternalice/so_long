@@ -6,11 +6,34 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:03:25 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/28 15:51:54 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/04 13:33:54 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+int	sprites_environment2(t_struct *stru, int wh, int he)
+{
+	stru->lborder[0] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder0.xpm", &wh, &he);
+	if (!stru->lborder[0])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->lborder[1] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder1.xpm", &wh, &he);
+	if (!stru->lborder[1])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->lborder[2] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder2.xpm", &wh, &he);
+	if (!stru->lborder[2])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->lborder[3] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder3.xpm", &wh, &he);
+	if (!stru->lborder[3])
+		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment3(stru, wh, he))
+		return (23);
+	return (0);
+}
 
 int	sprites_environment1(t_struct *stru, int wh, int he)
 {
@@ -34,6 +57,8 @@ int	sprites_environment1(t_struct *stru, int wh, int he)
 			"./sprites/water7.xpm", &wh, &he);
 	if (!stru->water[7])
 		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment2(stru, wh, he))
+		return (23);
 	return (0);
 }
 
@@ -69,19 +94,19 @@ int	sprites_p0(t_struct *stru)
 	int	he;
 
 	stru->player[0] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid0.xpm", &wh, &he);
+			"./sprites/naga0.xpm", &wh, &he);
 	if (!stru->player[0])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->player[1] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid1.xpm", &wh, &he);
+			"./sprites/naga1.xpm", &wh, &he);
 	if (!stru->player[1])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->player[2] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid2.xpm", &wh, &he);
+			"./sprites/naga2.xpm", &wh, &he);
 	if (!stru->player[2])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->player[3] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid3.xpm", &wh, &he);
+			"./sprites/naga3.xpm", &wh, &he);
 	if (!stru->player[3])
 		return (write(2, "mlx file to image fail\n", 23));
 	return (0);
