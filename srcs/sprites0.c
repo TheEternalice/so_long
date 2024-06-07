@@ -6,13 +6,36 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:03:25 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/04 13:33:54 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:45:46 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	sprites_environment2(t_struct *stru, int wh, int he)
+static int	sprites_environment3(t_struct *stru, int wh, int he)
+{
+	stru->lborder[4] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder4.xpm", &wh, &he);
+	if (!stru->lborder[4])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->lborder[5] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder5.xpm", &wh, &he);
+	if (!stru->lborder[5])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->lborder[6] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder6.xpm", &wh, &he);
+	if (!stru->lborder[6])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->lborder[7] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/lborder7.xpm", &wh, &he);
+	if (!stru->lborder[7])
+		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment4(stru, wh, he))
+		return (23);
+	return (0);
+}
+
+static int	sprites_environment2(t_struct *stru, int wh, int he)
 {
 	stru->lborder[0] = mlx_xpm_file_to_image(stru->mlx,
 			"./sprites/lborder0.xpm", &wh, &he);
@@ -35,7 +58,7 @@ int	sprites_environment2(t_struct *stru, int wh, int he)
 	return (0);
 }
 
-int	sprites_environment1(t_struct *stru, int wh, int he)
+static int	sprites_environment1(t_struct *stru, int wh, int he)
 {
 	stru->water[3] = mlx_xpm_file_to_image(stru->mlx,
 			"./sprites/water3.xpm", &wh, &he);
@@ -109,14 +132,5 @@ int	sprites_p0(t_struct *stru)
 			"./sprites/naga3.xpm", &wh, &he);
 	if (!stru->player[3])
 		return (write(2, "mlx file to image fail\n", 23));
-	return (0);
-}
-
-int	sprites_init(t_struct *stru)
-{
-	if (sprites_environment0(stru))
-		return (1);
-	if (sprites_p0(stru))
-		return (1);
 	return (0);
 }

@@ -6,16 +6,20 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/06 14:14:09 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/07 14:39:18 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static int	is_validarg(char c, t_struct *stru)
+static int	is_validarg(char c, t_struct *stru, int i, int j)
 {
 	if (c == 'P')
+	{
 		stru->game.player++;
+		stru->game.xp = i * 64;
+		stru->game.yp = j * 64;
+	}
 	else if (c == 'E')
 		stru->game.exit++;
 	else if (c == 'C')
@@ -35,7 +39,7 @@ int	check_args(t_struct *stru)
 		j = 0;
 		while (stru->map[i][j] && stru->map[i][j] != '\n')
 		{
-			if (!is_validarg(stru->map[i][j], stru))
+			if (!is_validarg(stru->map[i][j], stru, i, j))
 				return (1);
 			j++;
 		}

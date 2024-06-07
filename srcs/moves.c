@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 10:15:44 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/05/13 12:43:47 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/07 15:14:54 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@ int	keys(int val, t_struct *stru)
 		quit(stru);
 	if (stru->game.konami_code == 0)
 		easter_egg(val, stru);
+	if (val == XK_w)
+		stru->game.yp -= 10;
+	if (val == XK_s)
+		stru->game.yp += 10;
+	if (val == XK_a)
+		stru->game.xp -= 10;
+	if (val == XK_d)
+		stru->game.xp += 10;
 	return (0);
 }
 

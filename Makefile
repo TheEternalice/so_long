@@ -1,5 +1,6 @@
 SRCS		=	./srcs/main.c ./srcs/error.c ./srcs/parsing.c ./srcs/libft_utils.c ./srcs/gnl.c ./srcs/list.c \
-				./srcs/constructor.c ./srcs/destructor.c ./srcs/moves.c ./srcs/draw.c ./srcs/sprites0.c
+				./srcs/constructor.c ./srcs/destructor0.c ./srcs/destructor1.c ./srcs/moves.c ./srcs/draw.c ./srcs/sprites0.c \
+				./srcs/sprites1.c ./srcs/sprites2.c ./srcs/sprites3.c ./srcs/sprites4.c
 
 OBJS		=	$(SRCS:.c=.o)
 

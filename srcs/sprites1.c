@@ -6,11 +6,115 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/04 13:33:58 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/04 13:40:19 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/06 14:46:28 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+static int	sprites_environment8(t_struct *stru, int wh, int he)
+{
+	stru->bborder[4] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder4.xpm", &wh, &he);
+	if (!stru->bborder[4])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[5] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder5.xpm", &wh, &he);
+	if (!stru->bborder[5])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[6] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder6.xpm", &wh, &he);
+	if (!stru->bborder[6])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[7] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder7.xpm", &wh, &he);
+	if (!stru->bborder[7])
+		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment9(stru, wh, he))
+		return (23);
+	return (0);
+}
+
+static int	sprites_environment7(t_struct *stru, int wh, int he)
+{
+	stru->tborder[7] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder7.xpm", &wh, &he);
+	if (!stru->tborder[7])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[0] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder0.xpm", &wh, &he);
+	if (!stru->bborder[0])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[1] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder1.xpm", &wh, &he);
+	if (!stru->bborder[1])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[2] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder2.xpm", &wh, &he);
+	if (!stru->bborder[2])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->bborder[3] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/bborder3.xpm", &wh, &he);
+	if (!stru->bborder[3])
+		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment8(stru, wh, he))
+		return (23);
+	return (0);
+}
+
+static int	sprites_environment6(t_struct *stru, int wh, int he)
+{
+	stru->tborder[2] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder2.xpm", &wh, &he);
+	if (!stru->tborder[2])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->tborder[3] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder3.xpm", &wh, &he);
+	if (!stru->tborder[3])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->tborder[4] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder4.xpm", &wh, &he);
+	if (!stru->tborder[4])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->tborder[5] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder5.xpm", &wh, &he);
+	if (!stru->tborder[5])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->tborder[6] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder6.xpm", &wh, &he);
+	if (!stru->tborder[6])
+		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment7(stru, wh, he))
+		return (23);
+	return (0);
+}
+
+static int	sprites_environment5(t_struct *stru, int wh, int he)
+{
+	stru->rborder[5] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/rborder5.xpm", &wh, &he);
+	if (!stru->rborder[5])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->rborder[6] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/rborder6.xpm", &wh, &he);
+	if (!stru->rborder[6])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->rborder[7] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/rborder7.xpm", &wh, &he);
+	if (!stru->rborder[7])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->tborder[0] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder0.xpm", &wh, &he);
+	if (!stru->tborder[0])
+		return (write(2, "mlx file to image fail\n", 23));
+	stru->tborder[1] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/tborder1.xpm", &wh, &he);
+	if (!stru->tborder[1])
+		return (write(2, "mlx file to image fail\n", 23));
+	if (sprites_environment6(stru, wh, he))
+		return (23);
+	return (0);
+}
 
 int	sprites_environment4(t_struct *stru, int wh, int he)
 {
@@ -34,40 +138,7 @@ int	sprites_environment4(t_struct *stru, int wh, int he)
 			"./sprites/rborder4.xpm", &wh, &he);
 	if (!stru->rborder[4])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->rborder[5] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/rborder5.xpm", &wh, &he);
-	if (!stru->rborder[5])
-		return (write(2, "mlx file to image fail\n", 23));
-	stru->rborder[6] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/rborder6.xpm", &wh, &he);
-	if (!stru->rborder[6])
-		return (write(2, "mlx file to image fail\n", 23));
-	stru->rborder[7] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/rborder7.xpm", &wh, &he);
-	if (!stru->rborder[7])
-		return (write(2, "mlx file to image fail\n", 23));
-	return (0);
-}
-
-int	sprites_environment3(t_struct *stru, int wh, int he)
-{
-	stru->lborder[4] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/lborder4.xpm", &wh, &he);
-	if (!stru->lborder[4])
-		return (write(2, "mlx file to image fail\n", 23));
-	stru->lborder[5] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/lborder5.xpm", &wh, &he);
-	if (!stru->lborder[5])
-		return (write(2, "mlx file to image fail\n", 23));
-	stru->lborder[6] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/lborder6.xpm", &wh, &he);
-	if (!stru->lborder[6])
-		return (write(2, "mlx file to image fail\n", 23));
-	stru->lborder[7] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/lborder7.xpm", &wh, &he);
-	if (!stru->lborder[7])
-		return (write(2, "mlx file to image fail\n", 23));
-	if (sprites_environment4(stru, wh, he))
+	if (sprites_environment5(stru, wh, he))
 		return (23);
 	return (0);
 }
