@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 14:33:34 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:06:52 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,26 @@ static void	null_img_init1(t_struct *stru)
 	stru->trc[5] = NULL;
 	stru->trc[6] = NULL;
 	stru->trc[7] = NULL;
+	stru->walk[0] = NULL;
+	stru->walk[1] = NULL;
+	stru->walk[2] = NULL;
+	stru->walk[3] = NULL;
+	stru->coin[0] = NULL;
+	stru->coin[1] = NULL;
+	stru->coin[2] = NULL;
+	stru->coin[3] = NULL;
+	stru->coin[4] = NULL;
+	stru->coin[5] = NULL;
+	stru->gcoin[0] = NULL;
+	stru->gcoin[1] = NULL;
+	stru->gcoin[2] = NULL;
+	stru->gcoin[3] = NULL;
+	stru->gcoin[4] = NULL;
+	stru->gcoin[5] = NULL;
+	stru->exit[0] = NULL;
+	stru->exit[1] = NULL;
+	stru->exit[2] = NULL;
+	stru->exit[3] = NULL;
 }
 
 static void	null_img_init0(t_struct *stru)
@@ -136,9 +156,14 @@ static void	null_img_init0(t_struct *stru)
 void	init_stru(t_struct *stru)
 {
 	stru->frames = 0;
+	stru->cframes = 0;
 	stru->game.coin = 0;
 	stru->game.player = 0;
 	stru->game.exit = 0;
+	stru->game.up = 0;
+	stru->game.down = 0;
+	stru->game.left = 0;
+	stru->game.right = 0;
 	stru->game.xp = 0;
 	stru->game.yp = 0;
 	stru->game.x = 0;

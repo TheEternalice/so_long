@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:03:25 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/06 14:45:46 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/14 09:57:12 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,19 +117,19 @@ int	sprites_p0(t_struct *stru)
 	int	he;
 
 	stru->player[0] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/naga0.xpm", &wh, &he);
+			"./sprites/druid0.xpm", &wh, &he);
 	if (!stru->player[0])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->player[1] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/naga1.xpm", &wh, &he);
+			"./sprites/druid1.xpm", &wh, &he);
 	if (!stru->player[1])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->player[2] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/naga2.xpm", &wh, &he);
+			"./sprites/druid2.xpm", &wh, &he);
 	if (!stru->player[2])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->player[3] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/naga3.xpm", &wh, &he);
+			"./sprites/druid3.xpm", &wh, &he);
 	if (!stru->player[3])
 		return (write(2, "mlx file to image fail\n", 23));
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 14:39:18 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/13 15:14:27 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_args(t_struct *stru)
 		j = 0;
 		while (stru->map[i][j] && stru->map[i][j] != '\n')
 		{
-			if (!is_validarg(stru->map[i][j], stru, i, j))
+			if (!is_validarg(stru->map[i][j], stru, j, i))
 				return (1);
 			j++;
 		}

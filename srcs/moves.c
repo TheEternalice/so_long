@@ -6,69 +6,84 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 10:15:44 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 15:14:54 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/14 13:55:54 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	keys(int val, t_struct *stru)
+static void	pixel_diagonal_reset(t_struct *stru, int *i, int *j, char c)
 {
-	if (val == XK_Escape)
-		quit(stru);
-	if (stru->game.konami_code == 0)
-		easter_egg(val, stru);
-	if (val == XK_w)
-		stru->game.yp -= 10;
-	if (val == XK_s)
-		stru->game.yp += 10;
-	if (val == XK_a)
-		stru->game.xp -= 10;
-	if (val == XK_d)
-		stru->game.xp += 10;
-	return (0);
+	if (c == 'd')
+		stru->game.yp += 8;
+	if (c == 'u')
+		stru->game.yp -= 8;
+	if (c == 'r')
+		stru->game.xp += 8;
+	if (c == 'l')
+		stru->game.xp -= 8;
+	*i = stru->game.xp / 64;
+	*j = stru->game.yp / 64;
 }
 
-static void	easter_egg_helper(int val, int counter[11], t_struct *stru)
+static void	keys_helper1(t_struct *stru, int i, int j)
 {
-	if (counter[4] == 1 && val == XK_Right && counter[5] == 0)
-		counter[5] = 1;
-	else if (counter[5] == 1 && val == XK_Left && counter[6] == 0)
-		counter[6] = 1;
-	else if (counter[6] == 1 && val == XK_Right && counter[7] == 0)
-		counter[7] = 1;
-	else if (counter[7] == 1 && val == XK_b && counter[8] == 0)
-		counter[8] = 1;
-	else if (counter[8] == 1 && val == XK_a && counter[9] == 0)
-		counter[9] = 1;
-	else if (counter[9] == 1 && val == XK_Return)
-		stru->game.konami_code = 1;
-}
-
-void	easter_egg(int val, t_struct *stru)
-{
-	static int	counter[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-	int			i;
-
-	i = 0;
-	if (val == XK_Up && counter[0] == 0)
-		counter[0] = 1;
-	else if (counter[0] == 1 && val == XK_Up && counter[1] == 0)
-		counter[1] = 1;
-	else if (counter[1] == 1 && val == XK_Down && counter[2] == 0)
-		counter[2] = 1;
-	else if (counter[2] == 1 && val == XK_Down && counter[3] == 0)
-		counter[3] = 1;
-	else if (counter[3] == 1 && val == XK_Left && counter[4] == 0)
-		counter[4] = 1;
-	else if (counter[4] == 1)
-		easter_egg_helper(val, counter, stru);
-	else
+	if (stru->game.down && stru->map[j + 1][i] != '1')
 	{
-		while (counter[i])
-		{
-			counter[i] = 0;
-			i++;
-		}
+		if (stru->game.xp % 64 == 0)
+			pixel_diagonal_reset(stru, &i, &j, 'd');
+		else if (stru->map[j + 1][i + 1] != '1')
+			pixel_diagonal_reset(stru, &i, &j, 'd');
 	}
+	if (stru->game.right && stru->map[j][i + 1] != '1')
+	{
+		if (stru->game.yp % 64 == 0)
+			pixel_diagonal_reset(stru, &i, &j, 'r');
+		else if (stru->map[j + 1][i + 1] != '1')
+			pixel_diagonal_reset(stru, &i, &j, 'r');
+	}
+}
+
+static void	keys_helper(t_struct *stru, int i, int j)
+{
+	if (stru->game.left && stru->map[j][i - 1] != '1'
+		&& stru->game.xp % 64 == 0)
+	{
+		if (stru->game.yp % 64 == 0)
+			pixel_diagonal_reset(stru, &i, &j, 'l');
+		else if (stru->map[j + 1][i - 1] != '1')
+			pixel_diagonal_reset(stru, &i, &j, 'l');
+	}
+	else if (stru->game.left && stru->map[j][i] != '1'
+		&& stru->game.xp % 64 != 0)
+	{
+		if (stru->game.yp % 64 == 0)
+			pixel_diagonal_reset(stru, &i, &j, 'l');
+		else if (stru->map[j][i + 1] != '1')
+			pixel_diagonal_reset(stru, &i, &j, 'l');
+	}
+	keys_helper1(stru, i, j);
+}
+
+void	keys(t_struct *stru)
+{
+	int	i;
+	int	j;
+
+	pixel_diagonal_reset(stru, &i, &j, 'n');
+	if (stru->game.up && stru->map[j - 1][i] != '1' && stru->game.yp % 64 == 0)
+	{
+		if (stru->game.xp % 64 == 0)
+			pixel_diagonal_reset(stru, &i, &j, 'u');
+		else if (stru->map[j - 1][i + 1] != '1')
+			pixel_diagonal_reset(stru, &i, &j, 'u');
+	}
+	else if (stru->game.up && stru->map[j][i] != '1' && stru->game.yp % 64 != 0)
+	{
+		if (stru->game.xp % 64 == 0)
+			pixel_diagonal_reset(stru, &i, &j, 'u');
+		else if (stru->map[j][i + 1] != '1')
+			pixel_diagonal_reset(stru, &i, &j, 'u');
+	}
+	keys_helper(stru, i, j);
 }

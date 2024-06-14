@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destructor.c                                       :+:      :+:    :+:   */
+/*   destructor0.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:15:17 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 13:59:43 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:45:54 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,10 @@ static void	image_destroyer0(t_struct *stru)
 	mlx_destroy_image(stru->mlx, stru->player[1]);
 	mlx_destroy_image(stru->mlx, stru->player[2]);
 	mlx_destroy_image(stru->mlx, stru->player[3]);
+	mlx_destroy_image(stru->mlx, stru->walk[0]);
+	mlx_destroy_image(stru->mlx, stru->walk[1]);
+	mlx_destroy_image(stru->mlx, stru->walk[2]);
+	mlx_destroy_image(stru->mlx, stru->walk[3]);
 	mlx_destroy_image(stru->mlx, stru->water[0]);
 	mlx_destroy_image(stru->mlx, stru->water[1]);
 	mlx_destroy_image(stru->mlx, stru->water[2]);
@@ -113,6 +117,22 @@ static void	image_destroyer0(t_struct *stru)
 	mlx_destroy_image(stru->mlx, stru->water[5]);
 	mlx_destroy_image(stru->mlx, stru->water[6]);
 	mlx_destroy_image(stru->mlx, stru->water[7]);
+	mlx_destroy_image(stru->mlx, stru->coin[0]);
+	mlx_destroy_image(stru->mlx, stru->coin[1]);
+	mlx_destroy_image(stru->mlx, stru->coin[2]);
+	mlx_destroy_image(stru->mlx, stru->coin[3]);
+	mlx_destroy_image(stru->mlx, stru->coin[4]);
+	mlx_destroy_image(stru->mlx, stru->coin[5]);
+	mlx_destroy_image(stru->mlx, stru->gcoin[0]);
+	mlx_destroy_image(stru->mlx, stru->gcoin[1]);
+	mlx_destroy_image(stru->mlx, stru->gcoin[2]);
+	mlx_destroy_image(stru->mlx, stru->gcoin[3]);
+	mlx_destroy_image(stru->mlx, stru->gcoin[4]);
+	mlx_destroy_image(stru->mlx, stru->gcoin[5]);
+	mlx_destroy_image(stru->mlx, stru->exit[0]);
+	mlx_destroy_image(stru->mlx, stru->exit[1]);
+	mlx_destroy_image(stru->mlx, stru->exit[2]);
+	mlx_destroy_image(stru->mlx, stru->exit[3]);
 	mlx_destroy_image(stru->mlx, stru->lborder[0]);
 	mlx_destroy_image(stru->mlx, stru->lborder[1]);
 	mlx_destroy_image(stru->mlx, stru->lborder[2]);
