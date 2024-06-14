@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 14:33:10 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:12:51 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ typedef struct s_game
 	int	coin;
 	int	exit;
 	int	player;
+	int	up;
+	int	down;
+	int	left;
+	int	right;
 	int	xp;
 	int	yp;
 	int	x;
@@ -49,11 +53,16 @@ typedef struct s_struct
 	void	*mlx_win;
 	char	**map;
 	int		frames;
+	int		cframes;
 	clock_t	start;
 	clock_t	end;
 	t_img	*floor;
 	t_img	*water[8];
 	t_img	*player[4];
+	t_img	*exit[4];
+	t_img	*coin[6];
+	t_img	*gcoin[6];
+	t_img	*walk[4];
 	t_img	*tborder[8];
 	t_img	*bborder[8];
 	t_img	*lborder[8];
@@ -77,13 +86,16 @@ int		quit(t_struct *stru);
 int		looped(t_struct *stru);
 int		get_n_line(char *argv);
 int		is_close(t_struct *stru);
+int		sprites_e(t_struct *stru);
+int		sprites_c0(t_struct *stru);
 int		check_args(t_struct *stru);
 int		sprites_p0(t_struct *stru);
+int		sprites_gc0(t_struct *stru);
+int		sprites_pw0(t_struct *stru);
 int		constructor(t_struct *stru);
 int		sprites_init(t_struct *stru);
 int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
-int		keys(int val, t_struct *stru);
 int		map_open(char *argv, t_struct *stru);
 int		sprites_environment0(t_struct *stru);
 int		ft_strncmp(char *s1, char *s2, size_t n);
@@ -92,11 +104,14 @@ int		sprites_environment4(t_struct *stru, int wh, int he);
 int		sprites_environment9(t_struct *stru, int wh, int he);
 int		sprites_environment14(t_struct *stru, int wh, int he);
 int		sprites_environment19(t_struct *stru, int wh, int he);
+void	keys(t_struct *stru);
+void	collision(t_struct *stru);
 void	init_stru(t_struct *stru);
 void	free_struct(t_struct *stru);
 void	image_printer(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
+void	coin_get(t_struct *stru, int i, int j);
 void	exit_free(t_struct *stru, char *message, int num);
 void	transparency(t_struct *stru, t_img *img, int x, int y);
 
