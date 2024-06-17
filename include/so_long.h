@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/14 15:12:51 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:32:57 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,19 @@
 
 typedef struct s_game
 {
-	int	coin;
-	int	exit;
-	int	player;
-	int	up;
-	int	down;
-	int	left;
-	int	right;
-	int	xp;
-	int	yp;
-	int	x;
-	int	y;
-	int	konami_code;
+	int					coin;
+	int					exit;
+	int					player;
+	int					up;
+	int					down;
+	int					left;
+	int					right;
+	int					xp;
+	int					yp;
+	int					x;
+	int					y;
+	int					konami_code;
+	unsigned long long	step;
 }	t_game;
 
 typedef struct s_struct
@@ -62,6 +63,7 @@ typedef struct s_struct
 	t_img	*exit[4];
 	t_img	*coin[6];
 	t_img	*gcoin[6];
+	t_img	*step[10];
 	t_img	*walk[4];
 	t_img	*tborder[8];
 	t_img	*bborder[8];
@@ -112,6 +114,7 @@ void	image_printer(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
 void	coin_get(t_struct *stru, int i, int j);
+void	itow(t_struct *stru, int nb, int x, int y);
 void	exit_free(t_struct *stru, char *message, int num);
 void	transparency(t_struct *stru, t_img *img, int x, int y);
 
