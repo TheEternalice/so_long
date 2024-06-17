@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 10:15:44 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/14 13:55:54 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:33:43 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	pixel_diagonal_reset(t_struct *stru, int *i, int *j, char c)
 		stru->game.xp += 8;
 	if (c == 'l')
 		stru->game.xp -= 8;
+	if (c != 'i' && stru->game.step != 2147483647)
+		stru->game.step++;
 	*i = stru->game.xp / 64;
 	*j = stru->game.yp / 64;
 }
@@ -70,7 +72,7 @@ void	keys(t_struct *stru)
 	int	i;
 	int	j;
 
-	pixel_diagonal_reset(stru, &i, &j, 'n');
+	pixel_diagonal_reset(stru, &i, &j, 'i');
 	if (stru->game.up && stru->map[j - 1][i] != '1' && stru->game.yp % 64 == 0)
 	{
 		if (stru->game.xp % 64 == 0)

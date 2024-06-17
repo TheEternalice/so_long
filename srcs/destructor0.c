@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:15:17 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/14 14:45:54 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:23:51 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,16 @@ static void	image_destroyer0(t_struct *stru)
 	mlx_destroy_image(stru->mlx, stru->lborder[5]);
 	mlx_destroy_image(stru->mlx, stru->lborder[6]);
 	mlx_destroy_image(stru->mlx, stru->lborder[7]);
+	mlx_destroy_image(stru->mlx, stru->step[0]);
+	mlx_destroy_image(stru->mlx, stru->step[1]);
+	mlx_destroy_image(stru->mlx, stru->step[2]);
+	mlx_destroy_image(stru->mlx, stru->step[3]);
+	mlx_destroy_image(stru->mlx, stru->step[4]);
+	mlx_destroy_image(stru->mlx, stru->step[5]);
+	mlx_destroy_image(stru->mlx, stru->step[6]);
+	mlx_destroy_image(stru->mlx, stru->step[7]);
+	mlx_destroy_image(stru->mlx, stru->step[8]);
+	mlx_destroy_image(stru->mlx, stru->step[9]);
 	mlx_destroy_image(stru->mlx, stru->canva);
 	mlx_destroy_image(stru->mlx, stru->floor);
 	image_destroyer1(stru);

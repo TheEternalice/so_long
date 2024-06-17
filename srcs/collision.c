@@ -6,11 +6,38 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:17:53 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/14 15:12:53 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/17 12:19:06 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	exit_collision(t_struct *stru, int i, int j)
+{
+	if (stru->map[j][i] == 'E' && stru->game.coin == 0)
+	{
+		write(1, "(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ. * Congratulation!!!!\n", 55);
+		quit(stru);
+	}
+	else if (stru->map[j + 1][i] == 'E' && stru->game.yp % 64 != 0
+		&& stru->game.coin == 0)
+	{
+		write(1, "(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ. * Congratulation!!!!\n", 55);
+		quit(stru);
+	}
+	else if (stru->map[j][i + 1] == 'E' && stru->game.xp % 64 != 0
+		&& stru->game.coin == 0)
+	{
+		write(1, "(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ. * Congratulation!!!!\n", 55);
+		quit(stru);
+	}
+	else if (stru->map[j + 1][i + 1] == 'E' && stru->game.xp % 64 != 0
+		&& stru->game.yp % 64 != 0 && stru->game.coin == 0)
+	{
+		write(1, "(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ. * Congratulation!!!!\n", 55);
+		quit(stru);
+	}
+}
 
 void	coin_get(t_struct *stru, int i, int j)
 {
@@ -43,6 +70,7 @@ void	collision(t_struct *stru)
 
 	i = stru->game.xp / 64;
 	j = stru->game.yp / 64;
+	exit_collision(stru, i, j);
 	if (stru->map[j][i] == 'C')
 	{
 		stru->game.coin--;

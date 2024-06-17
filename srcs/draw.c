@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:38:14 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/14 15:12:37 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:37:42 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	image_printer(t_struct *stru)
 		}
 		j++;
 	}
+	itow(stru, stru->game.step, 0, 0);
 }
 
 void	transparency(t_struct *stru, t_img *img, int x, int y)

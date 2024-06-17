@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/14 15:06:52 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:40:11 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,7 @@ void	init_stru(t_struct *stru)
 	stru->game.yp = 0;
 	stru->game.x = 0;
 	stru->game.y = 0;
+	stru->game.step = 0;
 	stru->game.konami_code = 0;
 	stru->canva = NULL;
 	stru->floor = NULL;
