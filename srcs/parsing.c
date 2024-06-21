@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/04/29 10:21:39 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:56:38 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,19 @@ int	map_open(char *argv, t_struct *stru)
 	stru->map = malloc(sizeof(char *) * (get_n_line(argv) + 1));
 	if (!stru->map)
 		return (1);
+	stru->flood.map = stru->map;
+	if (!stru->flood.map)
+		return (free_struct(stru), 1);
 	line = get_next_line(fd);
 	if (!line)
-	{
-		close(fd);
-		return (1);
-	}
+		return (close(fd), 1);
 	while (line)
 	{
 		stru->map[i] = line;
+		stru->flood.map[i] = line;
 		i++;
 		line = get_next_line(fd);
 	}
 	stru->map[i] = NULL;
-	close(fd);
-	return (0);
+	return (close(fd), 0);
 }

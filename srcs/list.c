@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/17 13:40:11 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/21 15:41:14 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,8 @@ void	init_stru(t_struct *stru)
 {
 	stru->frames = 0;
 	stru->cframes = 0;
+	stru->flood.coin = 0;
+	stru->flood.exit = 0;
 	stru->game.coin = 0;
 	stru->game.player = 0;
 	stru->game.exit = 0;
@@ -179,15 +181,25 @@ void	free_struct(t_struct *stru)
 {
 	int	i;
 
-	i = 0;
 	if (stru->map)
 	{
+		i = 0;
 		while (stru->map[i])
 		{
 			free(stru->map[i]);
 			i++;
 		}
 		free(stru->map);
+	}
+	if (stru->flood.map)
+	{
+		i = 0;
+		while (stru->flood.map[i])
+		{
+			free(stru->flood.map[i]);
+			i++;
+		}
+		free(stru->flood.map);
 	}
 }
 
