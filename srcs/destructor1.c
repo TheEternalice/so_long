@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 13:58:12 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 14:31:44 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:21:07 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,22 +71,6 @@
 
 static void	image_destroyer5(t_struct *stru)
 {
-	// mlx_destroy_image(stru->mlx, stru->rborder[0]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[1]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[2]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[3]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[4]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[5]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[6]);
-	// mlx_destroy_image(stru->mlx, stru->rborder[7]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[0]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[1]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[2]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[3]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[4]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[5]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[6]);
-	// mlx_destroy_image(stru->mlx, stru->tborder[7]);
 	mlx_destroy_image(stru->mlx, stru->trc[0]);
 	mlx_destroy_image(stru->mlx, stru->trc[1]);
 	mlx_destroy_image(stru->mlx, stru->trc[2]);

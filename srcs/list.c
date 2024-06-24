@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/21 15:41:14 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:03:13 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,18 @@ static void	null_img_init1(t_struct *stru)
 	stru->exit[1] = NULL;
 	stru->exit[2] = NULL;
 	stru->exit[3] = NULL;
+	stru->enemy[0] = NULL;
+	stru->enemy[1] = NULL;
+	stru->enemy[2] = NULL;
+	stru->enemy[3] = NULL;
+	stru->player[0] = NULL;
+	stru->player[1] = NULL;
+	stru->player[2] = NULL;
+	stru->player[3] = NULL;
+	stru->walk[0] = NULL;
+	stru->walk[1] = NULL;
+	stru->walk[2] = NULL;
+	stru->walk[3] = NULL;
 }
 
 static void	null_img_init0(t_struct *stru)

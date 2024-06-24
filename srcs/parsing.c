@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/21 15:56:38 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 12:20:45 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ int	get_n_line(char *argv)
 	return (res);
 }
 
+static int	map_open_helper(char *argv, t_struct *stru)
+{
+	stru->map = malloc(sizeof(char *) * (get_n_line(argv) + 1));
+	if (!stru->map)
+		return (1);
+	stru->flood.map = malloc(sizeof(char *) * (get_n_line(argv) + 1));
+	if (!stru->flood.map)
+		return (free_struct(stru), 1);
+	return (0);
+}
+
 int	map_open(char *argv, t_struct *stru)
 {
 	int			fd;
@@ -71,22 +82,19 @@ int	map_open(char *argv, t_struct *stru)
 	fd = open(argv, O_RDONLY);
 	if (!fd)
 		return (1);
-	stru->map = malloc(sizeof(char *) * (get_n_line(argv) + 1));
-	if (!stru->map)
+	if (map_open_helper(argv, stru))
 		return (1);
-	stru->flood.map = stru->map;
-	if (!stru->flood.map)
-		return (free_struct(stru), 1);
 	line = get_next_line(fd);
 	if (!line)
 		return (close(fd), 1);
 	while (line)
 	{
 		stru->map[i] = line;
-		stru->flood.map[i] = line;
+		stru->flood.map[i] = ft_strdup(line);
 		i++;
 		line = get_next_line(fd);
 	}
 	stru->map[i] = NULL;
+	stru->flood.map[i] = NULL;
 	return (close(fd), 0);
 }

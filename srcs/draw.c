@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:38:14 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/17 13:37:42 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:20:08 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ void	image_printer(t_struct *stru)
 					i * 64 + 8, j * 64 + 8);
 			if (stru->map[j][i] == 'E')
 				transparency(stru, stru->exit[stru->frames % 4],
+					i * 64, j * 64);
+			if (stru->map[j][i] == 'S')
+				transparency(stru, stru->enemy[stru->frames % 4],
 					i * 64, j * 64);
 			i++;
 		}

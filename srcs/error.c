@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/13 15:14:27 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:04:38 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static int	is_validarg(char c, t_struct *stru, int i, int j)
 		stru->game.exit++;
 	else if (c == 'C')
 		stru->game.coin++;
-	return (c == '0' || c == '1' || c == 'P' || c == 'C' || c == 'E');
+	return (c == '0' || c == '1' || c == 'P' || c == 'C' || c == 'E'
+		|| c == 'S');
 }
 
 int	check_args(t_struct *stru)
@@ -62,6 +63,8 @@ int	check_error(int argc, char **argv, t_struct *stru)
 		exit_free(stru, "Invalide map\n", 1);
 	else if (check_args(stru))
 		exit_free(stru, "Invalide map arg\n", 1);
+	else if (finishable(stru))
+		exit_free(stru, "Error, no path found to finish\n", 1);
 	else if (is_close(stru))
 		exit_free(stru, "Invalide map\n", 1);
 	return (0);

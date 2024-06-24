@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/17 13:37:03 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:28:34 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int	sprites_init(t_struct *stru)
 	if (sprites_e(stru))
 		return (1);
 	if (sprites_gc0(stru))
+		return (1);
+	if (sprites_enemy0(stru))
 		return (1);
 	return (0);
 }

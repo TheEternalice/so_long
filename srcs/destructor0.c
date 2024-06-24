@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:15:17 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/17 13:23:51 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:56:41 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,10 @@ static void	image_destroyer0(t_struct *stru)
 	mlx_destroy_image(stru->mlx, stru->player[1]);
 	mlx_destroy_image(stru->mlx, stru->player[2]);
 	mlx_destroy_image(stru->mlx, stru->player[3]);
+	mlx_destroy_image(stru->mlx, stru->enemy[0]);
+	mlx_destroy_image(stru->mlx, stru->enemy[1]);
+	mlx_destroy_image(stru->mlx, stru->enemy[2]);
+	mlx_destroy_image(stru->mlx, stru->enemy[3]);
 	mlx_destroy_image(stru->mlx, stru->walk[0]);
 	mlx_destroy_image(stru->mlx, stru->walk[1]);
 	mlx_destroy_image(stru->mlx, stru->walk[2]);
