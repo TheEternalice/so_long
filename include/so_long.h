@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/17 13:32:57 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/24 14:50:01 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@
 # include <unistd.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
+
+typedef struct s_fill
+{
+	int		coin;
+	int		exit;
+	char	**map;
+}	t_fill;
 
 typedef struct s_game
 {
@@ -60,6 +67,7 @@ typedef struct s_struct
 	t_img	*floor;
 	t_img	*water[8];
 	t_img	*player[4];
+	t_img	*enemy[4];
 	t_img	*exit[4];
 	t_img	*coin[6];
 	t_img	*gcoin[6];
@@ -80,15 +88,18 @@ typedef struct s_struct
 	t_img	*trc[8];
 	t_img	*canva;
 	t_game	game;
+	t_fill	flood;
 }	t_struct;
 
 size_t	ft_strlen(char *str);
+char	*ft_strdup(char *s);
 char	*get_next_line(int fd);
 int		quit(t_struct *stru);
 int		looped(t_struct *stru);
 int		get_n_line(char *argv);
 int		is_close(t_struct *stru);
 int		sprites_e(t_struct *stru);
+int		finishable(t_struct *stru);
 int		sprites_c0(t_struct *stru);
 int		check_args(t_struct *stru);
 int		sprites_p0(t_struct *stru);
@@ -98,6 +109,7 @@ int		constructor(t_struct *stru);
 int		sprites_init(t_struct *stru);
 int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
+int		sprites_enemy0(t_struct *stru);
 int		map_open(char *argv, t_struct *stru);
 int		sprites_environment0(t_struct *stru);
 int		ft_strncmp(char *s1, char *s2, size_t n);
@@ -114,6 +126,8 @@ void	image_printer(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
 void	coin_get(t_struct *stru, int i, int j);
+void	enemy_move(t_struct *stru, int x, int y);
+void	flood_fill(t_struct *stru, int x, int y);
 void	itow(t_struct *stru, int nb, int x, int y);
 void	exit_free(t_struct *stru, char *message, int num);
 void	transparency(t_struct *stru, t_img *img, int x, int y);
