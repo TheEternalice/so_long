@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 14:04:38 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:26:37 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	is_validarg(char c, t_struct *stru, int i, int j)
 		stru->game.exit++;
 	else if (c == 'C')
 		stru->game.coin++;
+	else if (c == 'S')
+		stru->sentinel.nb_sent++;
 	return (c == '0' || c == '1' || c == 'P' || c == 'C' || c == 'E'
 		|| c == 'S');
 }
@@ -48,6 +50,10 @@ int	check_args(t_struct *stru)
 	}
 	if (stru->game.player != 1 || stru->game.exit != 1)
 		return (1);
+	stru->sentinel.x = malloc(sizeof(int) * stru->sentinel.nb_sent);
+	stru->sentinel.y = malloc(sizeof(int) * stru->sentinel.nb_sent);
+	if (!stru->sentinel.x || !stru->sentinel.y)
+		exit_free(stru, "Error, fail to allocate sentinel coordonate", 1);
 	return (0);
 }
 

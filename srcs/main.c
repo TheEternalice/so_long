@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 14:28:34 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:09:46 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	looped(t_struct *stru)
 	if (millis >= 55)
 	{
 		keys(stru);
+		if (stru->frames == 20 || stru->frames == 40)
+			coordonate(stru);
 		image_printer(stru);
 		if (!stru->game.up && !stru->game.down && !stru->game.right
 			&& !stru->game.left)
@@ -36,6 +38,7 @@ int	looped(t_struct *stru)
 		if (stru->frames > 55)
 			stru->frames = 0;
 		mlx_put_image_to_window(stru->mlx, stru->mlx_win, stru->canva, 0, 0);
+		collision_enemy(stru);
 		stru->start = clock();
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:15:17 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 13:56:41 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:31:45 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,10 @@ int	quit(t_struct *stru)
 {
 	image_destroyer0(stru);
 	free_struct(stru);
+	if (stru->sentinel.x)
+		free(stru->sentinel.x);
+	if (stru->sentinel.y)
+		free(stru->sentinel.y);
 	free(stru->mlx);
 	exit(1);
 }

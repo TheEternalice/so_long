@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 14:03:13 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/25 12:31:31 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,9 @@ void	init_stru(t_struct *stru)
 	stru->game.y = 0;
 	stru->game.step = 0;
 	stru->game.konami_code = 0;
+	stru->sentinel.x = 0;
+	stru->sentinel.y = 0;
+	stru->sentinel.nb_sent = 0;
 	stru->canva = NULL;
 	stru->floor = NULL;
 	null_img_init0(stru);
@@ -218,6 +221,10 @@ void	free_struct(t_struct *stru)
 void	exit_free(t_struct *stru, char *message, int num)
 {
 	free_struct(stru);
+	if (stru->sentinel.x)
+		free(stru->sentinel.x);
+	if (stru->sentinel.y)
+		free(stru->sentinel.y);
 	write(2, message, ft_strlen(message));
 	exit(num);
 }
