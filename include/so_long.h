@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 14:50:01 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:05:58 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@
 # include <unistd.h>
 # include <X11/keysym.h>
 # include <X11/X.h>
+
+typedef struct s_sentinel
+{
+	int	*x;
+	int	*y;
+	int	nb_sent;
+}	t_sent;
 
 typedef struct s_fill
 {
@@ -89,6 +96,7 @@ typedef struct s_struct
 	t_img	*canva;
 	t_game	game;
 	t_fill	flood;
+	t_sent	sentinel;
 }	t_struct;
 
 size_t	ft_strlen(char *str);
@@ -121,8 +129,10 @@ int		sprites_environment19(t_struct *stru, int wh, int he);
 void	keys(t_struct *stru);
 void	collision(t_struct *stru);
 void	init_stru(t_struct *stru);
+void	coordonate(t_struct *stru);
 void	free_struct(t_struct *stru);
 void	image_printer(t_struct *stru);
+void	collision_enemy(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
 void	coin_get(t_struct *stru, int i, int j);
