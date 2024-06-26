@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:15:17 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/25 12:31:45 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:05:20 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,152 +14,86 @@
 
 static void	image_destroyer3(t_struct *stru)
 {
-	mlx_destroy_image(stru->mlx, stru->rc[0]);
-	mlx_destroy_image(stru->mlx, stru->rc[1]);
-	mlx_destroy_image(stru->mlx, stru->rc[2]);
-	mlx_destroy_image(stru->mlx, stru->rc[3]);
-	mlx_destroy_image(stru->mlx, stru->rc[4]);
-	mlx_destroy_image(stru->mlx, stru->rc[5]);
-	mlx_destroy_image(stru->mlx, stru->rc[6]);
-	mlx_destroy_image(stru->mlx, stru->rc[7]);
-	mlx_destroy_image(stru->mlx, stru->o[0]);
-	mlx_destroy_image(stru->mlx, stru->o[1]);
-	mlx_destroy_image(stru->mlx, stru->o[2]);
-	mlx_destroy_image(stru->mlx, stru->o[3]);
-	mlx_destroy_image(stru->mlx, stru->o[4]);
-	mlx_destroy_image(stru->mlx, stru->o[5]);
-	mlx_destroy_image(stru->mlx, stru->o[6]);
-	mlx_destroy_image(stru->mlx, stru->o[7]);
-	mlx_destroy_image(stru->mlx, stru->dlc[0]);
-	mlx_destroy_image(stru->mlx, stru->dlc[1]);
-	mlx_destroy_image(stru->mlx, stru->dlc[2]);
-	mlx_destroy_image(stru->mlx, stru->dlc[3]);
-	mlx_destroy_image(stru->mlx, stru->dlc[4]);
-	mlx_destroy_image(stru->mlx, stru->dlc[5]);
-	mlx_destroy_image(stru->mlx, stru->dlc[6]);
-	mlx_destroy_image(stru->mlx, stru->dlc[7]);
+	if (stru->rc[0])
+		mlx_destroy_image(stru->mlx, stru->rc[0]);
+	if (stru->rc[1])
+		mlx_destroy_image(stru->mlx, stru->rc[1]);
+	if (stru->rc[2])
+		mlx_destroy_image(stru->mlx, stru->rc[2]);
+	if (stru->rc[3])
+		mlx_destroy_image(stru->mlx, stru->rc[3]);
+	if (stru->rc[4])
+		mlx_destroy_image(stru->mlx, stru->rc[4]);
+	if (stru->rc[5])
+		mlx_destroy_image(stru->mlx, stru->rc[5]);
+	if (stru->rc[6])
+		mlx_destroy_image(stru->mlx, stru->rc[6]);
+	if (stru->rc[7])
+		mlx_destroy_image(stru->mlx, stru->rc[7]);
 	image_destroyer4(stru);
 }
 
 static void	image_destroyer2(t_struct *stru)
 {
-	mlx_destroy_image(stru->mlx, stru->u[0]);
-	mlx_destroy_image(stru->mlx, stru->u[1]);
-	mlx_destroy_image(stru->mlx, stru->u[2]);
-	mlx_destroy_image(stru->mlx, stru->u[3]);
-	mlx_destroy_image(stru->mlx, stru->u[4]);
-	mlx_destroy_image(stru->mlx, stru->u[5]);
-	mlx_destroy_image(stru->mlx, stru->u[6]);
-	mlx_destroy_image(stru->mlx, stru->u[7]);
-	mlx_destroy_image(stru->mlx, stru->ru[0]);
-	mlx_destroy_image(stru->mlx, stru->ru[1]);
-	mlx_destroy_image(stru->mlx, stru->ru[2]);
-	mlx_destroy_image(stru->mlx, stru->ru[3]);
-	mlx_destroy_image(stru->mlx, stru->ru[4]);
-	mlx_destroy_image(stru->mlx, stru->ru[5]);
-	mlx_destroy_image(stru->mlx, stru->ru[6]);
-	mlx_destroy_image(stru->mlx, stru->ru[7]);
-	mlx_destroy_image(stru->mlx, stru->c[0]);
-	mlx_destroy_image(stru->mlx, stru->c[1]);
-	mlx_destroy_image(stru->mlx, stru->c[2]);
-	mlx_destroy_image(stru->mlx, stru->c[3]);
-	mlx_destroy_image(stru->mlx, stru->c[4]);
-	mlx_destroy_image(stru->mlx, stru->c[5]);
-	mlx_destroy_image(stru->mlx, stru->c[6]);
-	mlx_destroy_image(stru->mlx, stru->c[7]);
+	if (stru->u[0])
+		mlx_destroy_image(stru->mlx, stru->u[0]);
+	if (stru->u[1])
+		mlx_destroy_image(stru->mlx, stru->u[1]);
+	if (stru->u[2])
+		mlx_destroy_image(stru->mlx, stru->u[2]);
+	if (stru->u[3])
+		mlx_destroy_image(stru->mlx, stru->u[3]);
+	if (stru->u[4])
+		mlx_destroy_image(stru->mlx, stru->u[4]);
+	if (stru->u[5])
+		mlx_destroy_image(stru->mlx, stru->u[5]);
+	if (stru->u[6])
+		mlx_destroy_image(stru->mlx, stru->u[6]);
+	if (stru->u[7])
+		mlx_destroy_image(stru->mlx, stru->u[7]);
 	image_destroyer3(stru);
 }
 
 static void	image_destroyer1(t_struct *stru)
 {
-	mlx_destroy_image(stru->mlx, stru->rborder[0]);
-	mlx_destroy_image(stru->mlx, stru->rborder[1]);
-	mlx_destroy_image(stru->mlx, stru->rborder[2]);
-	mlx_destroy_image(stru->mlx, stru->rborder[3]);
-	mlx_destroy_image(stru->mlx, stru->rborder[4]);
-	mlx_destroy_image(stru->mlx, stru->rborder[5]);
-	mlx_destroy_image(stru->mlx, stru->rborder[6]);
-	mlx_destroy_image(stru->mlx, stru->rborder[7]);
-	mlx_destroy_image(stru->mlx, stru->tborder[0]);
-	mlx_destroy_image(stru->mlx, stru->tborder[1]);
-	mlx_destroy_image(stru->mlx, stru->tborder[2]);
-	mlx_destroy_image(stru->mlx, stru->tborder[3]);
-	mlx_destroy_image(stru->mlx, stru->tborder[4]);
-	mlx_destroy_image(stru->mlx, stru->tborder[5]);
-	mlx_destroy_image(stru->mlx, stru->tborder[6]);
-	mlx_destroy_image(stru->mlx, stru->tborder[7]);
-	mlx_destroy_image(stru->mlx, stru->bborder[0]);
-	mlx_destroy_image(stru->mlx, stru->bborder[1]);
-	mlx_destroy_image(stru->mlx, stru->bborder[2]);
-	mlx_destroy_image(stru->mlx, stru->bborder[3]);
-	mlx_destroy_image(stru->mlx, stru->bborder[4]);
-	mlx_destroy_image(stru->mlx, stru->bborder[5]);
-	mlx_destroy_image(stru->mlx, stru->bborder[6]);
-	mlx_destroy_image(stru->mlx, stru->bborder[7]);
+	if (stru->rborder[0])
+		mlx_destroy_image(stru->mlx, stru->rborder[0]);
+	if (stru->rborder[1])
+		mlx_destroy_image(stru->mlx, stru->rborder[1]);
+	if (stru->rborder[2])
+		mlx_destroy_image(stru->mlx, stru->rborder[2]);
+	if (stru->rborder[3])
+		mlx_destroy_image(stru->mlx, stru->rborder[3]);
+	if (stru->rborder[4])
+		mlx_destroy_image(stru->mlx, stru->rborder[4]);
+	if (stru->rborder[5])
+		mlx_destroy_image(stru->mlx, stru->rborder[5]);
+	if (stru->rborder[6])
+		mlx_destroy_image(stru->mlx, stru->rborder[6]);
+	if (stru->rborder[7])
+		mlx_destroy_image(stru->mlx, stru->rborder[7]);
 	image_destroyer2(stru);
 }
 
 static void	image_destroyer0(t_struct *stru)
 {
-	mlx_destroy_image(stru->mlx, stru->player[0]);
-	mlx_destroy_image(stru->mlx, stru->player[1]);
-	mlx_destroy_image(stru->mlx, stru->player[2]);
-	mlx_destroy_image(stru->mlx, stru->player[3]);
-	mlx_destroy_image(stru->mlx, stru->enemy[0]);
-	mlx_destroy_image(stru->mlx, stru->enemy[1]);
-	mlx_destroy_image(stru->mlx, stru->enemy[2]);
-	mlx_destroy_image(stru->mlx, stru->enemy[3]);
-	mlx_destroy_image(stru->mlx, stru->walk[0]);
-	mlx_destroy_image(stru->mlx, stru->walk[1]);
-	mlx_destroy_image(stru->mlx, stru->walk[2]);
-	mlx_destroy_image(stru->mlx, stru->walk[3]);
-	mlx_destroy_image(stru->mlx, stru->water[0]);
-	mlx_destroy_image(stru->mlx, stru->water[1]);
-	mlx_destroy_image(stru->mlx, stru->water[2]);
-	mlx_destroy_image(stru->mlx, stru->water[3]);
-	mlx_destroy_image(stru->mlx, stru->water[4]);
-	mlx_destroy_image(stru->mlx, stru->water[5]);
-	mlx_destroy_image(stru->mlx, stru->water[6]);
-	mlx_destroy_image(stru->mlx, stru->water[7]);
-	mlx_destroy_image(stru->mlx, stru->coin[0]);
-	mlx_destroy_image(stru->mlx, stru->coin[1]);
-	mlx_destroy_image(stru->mlx, stru->coin[2]);
-	mlx_destroy_image(stru->mlx, stru->coin[3]);
-	mlx_destroy_image(stru->mlx, stru->coin[4]);
-	mlx_destroy_image(stru->mlx, stru->coin[5]);
-	mlx_destroy_image(stru->mlx, stru->gcoin[0]);
-	mlx_destroy_image(stru->mlx, stru->gcoin[1]);
-	mlx_destroy_image(stru->mlx, stru->gcoin[2]);
-	mlx_destroy_image(stru->mlx, stru->gcoin[3]);
-	mlx_destroy_image(stru->mlx, stru->gcoin[4]);
-	mlx_destroy_image(stru->mlx, stru->gcoin[5]);
-	mlx_destroy_image(stru->mlx, stru->exit[0]);
-	mlx_destroy_image(stru->mlx, stru->exit[1]);
-	mlx_destroy_image(stru->mlx, stru->exit[2]);
-	mlx_destroy_image(stru->mlx, stru->exit[3]);
-	mlx_destroy_image(stru->mlx, stru->lborder[0]);
-	mlx_destroy_image(stru->mlx, stru->lborder[1]);
-	mlx_destroy_image(stru->mlx, stru->lborder[2]);
-	mlx_destroy_image(stru->mlx, stru->lborder[3]);
-	mlx_destroy_image(stru->mlx, stru->lborder[4]);
-	mlx_destroy_image(stru->mlx, stru->lborder[5]);
-	mlx_destroy_image(stru->mlx, stru->lborder[6]);
-	mlx_destroy_image(stru->mlx, stru->lborder[7]);
-	mlx_destroy_image(stru->mlx, stru->step[0]);
-	mlx_destroy_image(stru->mlx, stru->step[1]);
-	mlx_destroy_image(stru->mlx, stru->step[2]);
-	mlx_destroy_image(stru->mlx, stru->step[3]);
-	mlx_destroy_image(stru->mlx, stru->step[4]);
-	mlx_destroy_image(stru->mlx, stru->step[5]);
-	mlx_destroy_image(stru->mlx, stru->step[6]);
-	mlx_destroy_image(stru->mlx, stru->step[7]);
-	mlx_destroy_image(stru->mlx, stru->step[8]);
-	mlx_destroy_image(stru->mlx, stru->step[9]);
-	mlx_destroy_image(stru->mlx, stru->canva);
-	mlx_destroy_image(stru->mlx, stru->floor);
+	if (stru->exit[0])
+		mlx_destroy_image(stru->mlx, stru->exit[0]);
+	if (stru->exit[1])
+		mlx_destroy_image(stru->mlx, stru->exit[1]);
+	if (stru->exit[2])
+		mlx_destroy_image(stru->mlx, stru->exit[2]);
+	if (stru->exit[3])
+		mlx_destroy_image(stru->mlx, stru->exit[3]);
+	if (stru->canva)
+		mlx_destroy_image(stru->mlx, stru->canva);
+	if (stru->floor)
+		mlx_destroy_image(stru->mlx, stru->floor);
 	image_destroyer1(stru);
-	mlx_destroy_window(stru->mlx, stru->mlx_win);
-	mlx_destroy_display(stru->mlx);
+	if (stru->mlx && stru->mlx_win)
+		mlx_destroy_window(stru->mlx, stru->mlx_win);
+	if (stru->mlx)
+		mlx_destroy_display(stru->mlx);
 }
 
 int	quit(t_struct *stru)

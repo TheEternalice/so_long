@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/25 12:26:37 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 11:01:04 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int	check_args(t_struct *stru)
 	int	i;
 	int	j;
 
-	init_stru(stru);
 	i = 0;
 	while (stru->map[i])
 	{

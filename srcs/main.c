@@ -6,11 +6,35 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/25 13:09:46 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 11:16:26 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+static void	frames(t_struct *stru)
+{
+	keys(stru);
+	if (stru->frames == 20 || stru->frames == 40)
+		coordonate(stru);
+	image_printer(stru);
+	if (!stru->game.up && !stru->game.down && !stru->game.right
+		&& !stru->game.left)
+		transparency(stru, stru->player[stru->frames % 4],
+			stru->game.xp, stru->game.yp);
+	else
+	{
+		collision(stru);
+		transparency(stru, stru->walk[stru->frames % 4],
+			stru->game.xp, stru->game.yp);
+	}
+	stru->frames++;
+	if (stru->frames > 55)
+		stru->frames = 0;
+	mlx_put_image_to_window(stru->mlx, stru->mlx_win, stru->canva, 0, 0);
+	collision_enemy(stru);
+	stru->start = clock();
+}
 
 int	looped(t_struct *stru)
 {
@@ -19,28 +43,7 @@ int	looped(t_struct *stru)
 	stru->end = clock();
 	millis = (stru->end - stru->start) * 1000 / CLOCKS_PER_SEC;
 	if (millis >= 55)
-	{
-		keys(stru);
-		if (stru->frames == 20 || stru->frames == 40)
-			coordonate(stru);
-		image_printer(stru);
-		if (!stru->game.up && !stru->game.down && !stru->game.right
-			&& !stru->game.left)
-			transparency(stru, stru->player[stru->frames % 4],
-				stru->game.xp, stru->game.yp);
-		else
-		{
-			collision(stru);
-			transparency(stru, stru->walk[stru->frames % 4],
-				stru->game.xp, stru->game.yp);
-		}
-		stru->frames++;
-		if (stru->frames > 55)
-			stru->frames = 0;
-		mlx_put_image_to_window(stru->mlx, stru->mlx_win, stru->canva, 0, 0);
-		collision_enemy(stru);
-		stru->start = clock();
-	}
+		frames(stru);
 	return (0);
 }
 
@@ -74,29 +77,11 @@ static int	key_releaser(int val, t_struct *stru)
 	return (0);
 }
 
-int	sprites_init(t_struct *stru)
-{
-	if (sprites_environment0(stru))
-		return (1);
-	if (sprites_p0(stru))
-		return (1);
-	if (sprites_pw0(stru))
-		return (1);
-	if (sprites_c0(stru))
-		return (1);
-	if (sprites_e(stru))
-		return (1);
-	if (sprites_gc0(stru))
-		return (1);
-	if (sprites_enemy0(stru))
-		return (1);
-	return (0);
-}
-
 int	main(int argc, char **argv)
 {
 	t_struct	stru;
 
+	init_stru(&stru);
 	if (check_error(argc, argv, &stru))
 		return (1);
 	if (constructor(&stru))

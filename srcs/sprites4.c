@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:11:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/07 14:19:13 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 11:26:51 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ static int	sprites_environment23(t_struct *stru, int wh, int he)
 
 static int	sprites_environment22(t_struct *stru, int wh, int he)
 {
-	stru->drc[7] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc7.xpm", &wh, &he);
+	stru->drc[7] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc7.xpm", &wh, &he);
 	if (!stru->drc[7])
 		return (write(2, "mlx file to image fail\n", 23));
 	stru->trc[0] = mlx_xpm_file_to_image(stru->mlx,
@@ -61,19 +62,24 @@ static int	sprites_environment22(t_struct *stru, int wh, int he)
 
 static int	sprites_environment21(t_struct *stru, int wh, int he)
 {
-	stru->drc[2] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc2.xpm", &wh, &he);
+	stru->drc[2] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc2.xpm", &wh, &he);
 	if (!stru->drc[2])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->drc[3] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc3.xpm", &wh, &he);
+	stru->drc[3] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc3.xpm", &wh, &he);
 	if (!stru->drc[3])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->drc[4] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc4.xpm", &wh, &he);
+	stru->drc[4] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc4.xpm", &wh, &he);
 	if (!stru->drc[4])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->drc[5] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc5.xpm", &wh, &he);
+	stru->drc[5] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc5.xpm", &wh, &he);
 	if (!stru->drc[5])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->drc[6] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc6.xpm", &wh, &he);
+	stru->drc[6] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc6.xpm", &wh, &he);
 	if (!stru->drc[6])
 		return (write(2, "mlx file to image fail\n", 23));
 	if (sprites_environment22(stru, wh, he))
@@ -95,10 +101,12 @@ static int	sprites_environment20(t_struct *stru, int wh, int he)
 			"./sprites/tlc7.xpm", &wh, &he);
 	if (!stru->tlc[7])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->drc[0] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc0.xpm", &wh, &he);
+	stru->drc[0] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc0.xpm", &wh, &he);
 	if (!stru->drc[0])
 		return (write(2, "mlx file to image fail\n", 23));
-	stru->drc[1] = mlx_xpm_file_to_image(stru->mlx, "./sprites/drc1.xpm", &wh, &he);
+	stru->drc[1] = mlx_xpm_file_to_image(stru->mlx,
+			"./sprites/drc1.xpm", &wh, &he);
 	if (!stru->drc[1])
 		return (write(2, "mlx file to image fail\n", 23));
 	if (sprites_environment21(stru, wh, he))

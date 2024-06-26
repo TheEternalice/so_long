@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:38:14 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 15:20:08 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:09:15 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,8 @@ void	image_printer(t_struct *stru)
 	int		i;
 	int		j;
 
-	j = 0;
-	while (j < stru->game.y + 1)
+	j = -1;
+	while (++j < stru->game.y + 1)
 	{
 		i = 0;
 		while (i < stru->game.x + 1)
@@ -114,7 +114,6 @@ void	image_printer(t_struct *stru)
 					i * 64, j * 64);
 			i++;
 		}
-		j++;
 	}
 	itow(stru, stru->game.step, 0, 0);
 }

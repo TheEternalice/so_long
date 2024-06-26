@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/24 12:20:45 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 11:11:33 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,12 @@ int	get_n_line(char *argv)
 
 static int	map_open_helper(char *argv, t_struct *stru)
 {
-	stru->map = malloc(sizeof(char *) * (get_n_line(argv) + 1));
+	stru->map = ft_calloc(sizeof(char *) * (get_n_line(argv) + 1),
+			(get_n_line(argv) + 1));
 	if (!stru->map)
 		return (1);
-	stru->flood.map = malloc(sizeof(char *) * (get_n_line(argv) + 1));
+	stru->flood.map = ft_calloc(sizeof(char *) * (get_n_line(argv) + 1),
+			(get_n_line(argv) + 1));
 	if (!stru->flood.map)
 		return (free_struct(stru), 1);
 	return (0);
@@ -91,6 +93,8 @@ int	map_open(char *argv, t_struct *stru)
 	{
 		stru->map[i] = line;
 		stru->flood.map[i] = ft_strdup(line);
+		if (!stru->flood.map[i])
+			exit_free(stru, "Error, stru->flood.map allocation fail\n", 1);
 		i++;
 		line = get_next_line(fd);
 	}
