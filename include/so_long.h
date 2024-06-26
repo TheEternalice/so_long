@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/25 13:05:58 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:01:34 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,9 +132,13 @@ void	init_stru(t_struct *stru);
 void	coordonate(t_struct *stru);
 void	free_struct(t_struct *stru);
 void	image_printer(t_struct *stru);
+void	null_img_init2(t_struct *stru);
 void	collision_enemy(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
+void	image_destroyer9(t_struct *stru);
+void	image_destroyer14(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
+void	*ft_calloc(size_t nmemb, size_t size);
 void	coin_get(t_struct *stru, int i, int j);
 void	enemy_move(t_struct *stru, int x, int y);
 void	flood_fill(t_struct *stru, int x, int y);
