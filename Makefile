@@ -1,7 +1,8 @@
 SRCS		=	./srcs/main.c ./srcs/error.c ./srcs/parsing.c ./srcs/libft_utils0.c ./srcs/libft_utils1.c ./srcs/gnl.c ./srcs/list0.c ./srcs/list1.c \
-				./srcs/constructor.c ./srcs/destructor0.c ./srcs/destructor1.c ./srcs/destructor2.c ./srcs/destructor3.c  ./srcs/sprites0.c \
-				./srcs/sprites1.c ./srcs/sprites2.c ./srcs/sprites3.c ./srcs/sprites4.c ./srcs/sprites5.c ./srcs/sprites6.c ./srcs/sprites7.c \
-				./srcs/collision.c ./srcs/easter_egg.c ./srcs/steps_drawer.c ./srcs/flood_fill.c ./srcs/enemy.c ./srcs/moves.c ./srcs/draw.c
+				./srcs/constructor.c ./srcs/destructor0.c ./srcs/destructor1.c ./srcs/destructor2.c ./srcs/destructor3.c \
+				./srcs/sprites0.c ./srcs/sprites1.c ./srcs/sprites2.c ./srcs/sprites3.c ./srcs/sprites4.c ./srcs/sprites5.c ./srcs/sprites6.c \
+				./srcs/sprites7.c ./srcs/collision.c ./srcs/easter_egg.c ./srcs/steps_drawer.c ./srcs/flood_fill.c \
+				./srcs/enemy.c ./srcs/moves.c ./srcs/draw.c
 
 OBJS		=	$(SRCS:.c=.o)
 

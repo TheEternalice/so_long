@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 14:01:34 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:38:39 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ typedef struct s_struct
 	clock_t	end;
 	t_img	*floor;
 	t_img	*water[8];
+	t_img	*waka[8];
 	t_img	*player[4];
 	t_img	*enemy[4];
 	t_img	*exit[4];
@@ -120,6 +121,8 @@ int		check_extantion(char **argv);
 int		sprites_enemy0(t_struct *stru);
 int		map_open(char *argv, t_struct *stru);
 int		sprites_environment0(t_struct *stru);
+int		waka4(t_struct *stru, int wh, int he);
+int		waka9(t_struct *stru, int wh, int he);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 int		check_error(int argc, char **argv, t_struct *stru);
 int		sprites_environment4(t_struct *stru, int wh, int he);
@@ -137,6 +140,7 @@ void	collision_enemy(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	image_destroyer9(t_struct *stru);
 void	image_destroyer14(t_struct *stru);
+void	image_destroyer19(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	coin_get(t_struct *stru, int i, int j);
