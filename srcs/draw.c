@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 12:38:14 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 14:09:15 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:40:02 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,11 @@ void	image_printer(t_struct *stru)
 			if (stru->map[j][i] == 'E')
 				transparency(stru, stru->exit[stru->frames % 4],
 					i * 64, j * 64);
-			if (stru->map[j][i] == 'S')
+			if (stru->map[j][i] == 'S' && stru->game.konami_code == 0)
 				transparency(stru, stru->enemy[stru->frames % 4],
+					i * 64, j * 64);
+			if (stru->map[j][i] == 'S' && stru->game.konami_code == 1)
+				transparency(stru, stru->waka[stru->frames % 8],
 					i * 64, j * 64);
 			i++;
 		}

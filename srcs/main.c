@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 11:16:26 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/27 10:29:38 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	frames(t_struct *stru)
 {
 	keys(stru);
-	if (stru->frames == 20 || stru->frames == 40)
+	if (stru->frames == 18 || stru->frames == 36 || stru->frames == 54)
 		coordonate(stru);
 	image_printer(stru);
 	if (!stru->game.up && !stru->game.down && !stru->game.right

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:17:19 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 11:24:47 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:38:30 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@ static void	null_img_init6(t_struct *stru)
 	stru->coin[3] = NULL;
 	stru->coin[4] = NULL;
 	stru->coin[5] = NULL;
+	stru->waka[0] = NULL;
+	stru->waka[1] = NULL;
+	stru->waka[2] = NULL;
+	stru->waka[3] = NULL;
+	stru->waka[4] = NULL;
+	stru->waka[5] = NULL;
+	stru->waka[6] = NULL;
+	stru->waka[7] = NULL;
 }
 
 static void	null_img_init5(t_struct *stru)

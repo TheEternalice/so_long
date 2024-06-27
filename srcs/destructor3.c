@@ -6,11 +6,31 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:01:55 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 14:05:50 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:43:16 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+static void	image_destroyer17(t_struct *stru)
+{
+	if (stru->waka[0])
+		mlx_destroy_image(stru->mlx, stru->waka[0]);
+	if (stru->waka[1])
+		mlx_destroy_image(stru->mlx, stru->waka[1]);
+	if (stru->waka[2])
+		mlx_destroy_image(stru->mlx, stru->waka[2]);
+	if (stru->waka[3])
+		mlx_destroy_image(stru->mlx, stru->waka[3]);
+	if (stru->waka[4])
+		mlx_destroy_image(stru->mlx, stru->waka[4]);
+	if (stru->waka[5])
+		mlx_destroy_image(stru->mlx, stru->waka[5]);
+	if (stru->waka[6])
+		mlx_destroy_image(stru->mlx, stru->waka[6]);
+	if (stru->waka[7])
+		mlx_destroy_image(stru->mlx, stru->waka[7]);
+}
 
 static void	image_destroyer16(t_struct *stru)
 {
@@ -30,6 +50,7 @@ static void	image_destroyer16(t_struct *stru)
 		mlx_destroy_image(stru->mlx, stru->o[6]);
 	if (stru->o[7])
 		mlx_destroy_image(stru->mlx, stru->o[7]);
+	image_destroyer17(stru);
 }
 
 static void	image_destroyer15(t_struct *stru)
