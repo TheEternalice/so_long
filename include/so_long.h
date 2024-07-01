@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/27 15:38:39 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/01 15:40:19 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
+# endif
+
+# ifndef CAM
+#  define CAM_LEN 1920
+#  define CAM_WIDHT 1020
 # endif
 
 # include <fcntl.h>
@@ -72,8 +77,11 @@ typedef struct s_struct
 	clock_t	start;
 	clock_t	end;
 	t_img	*floor;
+	t_img	*soso;
+	t_img	*select[12];
+	t_img	*arrow[5];
 	t_img	*water[8];
-	t_img	*waka[8];
+	t_img	*waka[55];
 	t_img	*player[4];
 	t_img	*enemy[4];
 	t_img	*exit[4];
@@ -105,9 +113,11 @@ char	*ft_strdup(char *s);
 char	*get_next_line(int fd);
 int		quit(t_struct *stru);
 int		looped(t_struct *stru);
+int		selection(t_struct *stru);
 int		get_n_line(char *argv);
 int		is_close(t_struct *stru);
 int		sprites_e(t_struct *stru);
+int		init_arrow(t_struct *stru);
 int		finishable(t_struct *stru);
 int		sprites_c0(t_struct *stru);
 int		check_args(t_struct *stru);
@@ -118,11 +128,10 @@ int		constructor(t_struct *stru);
 int		sprites_init(t_struct *stru);
 int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
+int		init_portrait0(t_struct *stru);
 int		sprites_enemy0(t_struct *stru);
 int		map_open(char *argv, t_struct *stru);
 int		sprites_environment0(t_struct *stru);
-int		waka4(t_struct *stru, int wh, int he);
-int		waka9(t_struct *stru, int wh, int he);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 int		check_error(int argc, char **argv, t_struct *stru);
 int		sprites_environment4(t_struct *stru, int wh, int he);
@@ -134,13 +143,13 @@ void	collision(t_struct *stru);
 void	init_stru(t_struct *stru);
 void	coordonate(t_struct *stru);
 void	free_struct(t_struct *stru);
-void	image_printer(t_struct *stru);
+void	camera_track(t_struct *stru);
 void	null_img_init2(t_struct *stru);
+void	null_img_init7(t_struct *stru);
 void	collision_enemy(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	image_destroyer9(t_struct *stru);
 void	image_destroyer14(t_struct *stru);
-void	image_destroyer19(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	coin_get(t_struct *stru, int i, int j);
@@ -148,6 +157,8 @@ void	enemy_move(t_struct *stru, int x, int y);
 void	flood_fill(t_struct *stru, int x, int y);
 void	itow(t_struct *stru, int nb, int x, int y);
 void	exit_free(t_struct *stru, char *message, int num);
+void	image_printer_helper(t_struct *stru, int i, int j);
+void	image_printer_helper2(t_struct *stru, int i, int j);
 void	transparency(t_struct *stru, t_img *img, int x, int y);
 
 #endif
