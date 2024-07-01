@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 13:17:53 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 14:35:55 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/01 11:29:44 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,9 @@ void	coin_get(t_struct *stru, int i, int j)
 {
 	if (stru->map[j][i] == '+')
 	{
-		transparency(stru, stru->gcoin[stru->cframes], i * 64, (j - 1) * 64);
+		transparency(stru, stru->gcoin[stru->cframes],
+			CAM_LEN / 2 + (i * 64 + 8 - stru->game.xp),
+			CAM_WIDHT / 2 + ((j - 1) * 64 + 8 - stru->game.yp));
 		stru->cframes++;
 		if (stru->cframes == 6)
 		{

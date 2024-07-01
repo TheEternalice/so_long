@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 11:01:04 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/01 12:57:57 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,26 @@ int	check_args(t_struct *stru)
 	stru->sentinel.x = malloc(sizeof(int) * stru->sentinel.nb_sent);
 	stru->sentinel.y = malloc(sizeof(int) * stru->sentinel.nb_sent);
 	if (!stru->sentinel.x || !stru->sentinel.y)
-		exit_free(stru, "Error, fail to allocate sentinel coordonate", 1);
+		exit_free(stru, "Error\nfail to allocate sentinel coordonate", 1);
 	return (0);
 }
 
 int	check_error(int argc, char **argv, t_struct *stru)
 {
 	if (argc != 2)
-		return (write(2, "Invalide number of arguments\n", 29), 1);
+		return (write(2, "Error\nInvalide number of arguments\n", 35), 1);
 	else if (check_extantion(argv))
-		return (write(2, "Invalide file name\n", 19), 1);
+		return (write(2, "Error\nInvalide file name\n", 25), 1);
 	else if (map_open(argv[1], stru))
-		return (free(stru->map), write(2, "Error dir found or no map\n", 27), 1);
+		return (free(stru->map), write(2, "Error\nDir found or no map\n", 26), 1);
 	else if (is_rectangle(stru))
-		exit_free(stru, "Invalide map\n", 1);
+		exit_free(stru, "Error\nInvalide map\n", 1);
 	else if (check_args(stru))
-		exit_free(stru, "Invalide map arg\n", 1);
+		exit_free(stru, "Error\nInvalide map arg\n", 1);
 	else if (finishable(stru))
-		exit_free(stru, "Error, no path found to finish\n", 1);
+		exit_free(stru, "Error\nNo path found to finish\n", 1);
 	else if (is_close(stru))
-		exit_free(stru, "Invalide map\n", 1);
+		exit_free(stru, "Error\nInvalide map\n", 1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/27 10:29:38 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/01 15:33:54 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,30 @@
 
 static void	frames(t_struct *stru)
 {
-	keys(stru);
-	if (stru->frames == 18 || stru->frames == 36 || stru->frames == 54)
-		coordonate(stru);
-	image_printer(stru);
-	if (!stru->game.up && !stru->game.down && !stru->game.right
-		&& !stru->game.left)
-		transparency(stru, stru->player[stru->frames % 4],
-			stru->game.xp, stru->game.yp);
-	else
+	if (selection(stru) != 0)
 	{
-		collision(stru);
-		transparency(stru, stru->walk[stru->frames % 4],
-			stru->game.xp, stru->game.yp);
+		keys(stru);
+		if (stru->frames == 18 || stru->frames == 36 || stru->frames == 54)
+			coordonate(stru);
+		camera_track(stru);
+		if (stru->game.konami_code == 0)
+		{
+			if (!stru->game.up && !stru->game.down && !stru->game.right
+				&& !stru->game.left)
+				transparency(stru, stru->player[stru->frames % 4],
+					CAM_LEN / 2, CAM_WIDHT / 2);
+			else
+			{
+				collision(stru);
+				transparency(stru, stru->walk[stru->frames % 4],
+					CAM_LEN / 2, CAM_WIDHT / 2);
+			}
+		}
+		else
+		{
+			collision(stru);
+			transparency(stru, stru->soso, CAM_LEN / 2, CAM_WIDHT / 2);
+		}
 	}
 	stru->frames++;
 	if (stru->frames > 55)
@@ -81,6 +92,7 @@ int	main(int argc, char **argv)
 {
 	t_struct	stru;
 
+	srand((long long)&main);
 	init_stru(&stru);
 	if (check_error(argc, argv, &stru))
 		return (1);
