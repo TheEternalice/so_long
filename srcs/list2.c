@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 14:15:00 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/01 15:28:12 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/04 10:56:18 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void	null_img_init7(t_struct *stru)
 	stru->arrow[2] = NULL;
 	stru->arrow[3] = NULL;
 	stru->arrow[4] = NULL;
+	stru->sarrow = 0;
+	stru->selected = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:03:25 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/01 12:58:47 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/04 12:59:41 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,29 +108,5 @@ int	sprites_environment0(t_struct *stru)
 		return (write(2, "Error\nmlx file to image fail\n", 29));
 	if (sprites_environment1(stru, wh, he))
 		return (23);
-	return (0);
-}
-
-int	sprites_p0(t_struct *stru)
-{
-	int	wh;
-	int	he;
-
-	stru->player[0] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid0.xpm", &wh, &he);
-	if (!stru->player[0])
-		return (write(2, "Error\nmlx file to image fail\n", 29));
-	stru->player[1] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid1.xpm", &wh, &he);
-	if (!stru->player[1])
-		return (write(2, "Error\nmlx file to image fail\n", 29));
-	stru->player[2] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid2.xpm", &wh, &he);
-	if (!stru->player[2])
-		return (write(2, "Error\nmlx file to image fail\n", 29));
-	stru->player[3] = mlx_xpm_file_to_image(stru->mlx,
-			"./sprites/druid3.xpm", &wh, &he);
-	if (!stru->player[3])
-		return (write(2, "Error\nmlx file to image fail\n", 29));
 	return (0);
 }

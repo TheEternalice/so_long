@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 14:15:17 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 14:05:20 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:14:35 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ static void	image_destroyer0(t_struct *stru)
 
 int	quit(t_struct *stru)
 {
+	mlx_do_key_autorepeaton(stru->mlx);
 	image_destroyer0(stru);
 	free_struct(stru);
 	if (stru->sentinel.x)

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:10 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/01 15:33:54 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/04 14:15:03 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@ static void	frames(t_struct *stru)
 					CAM_LEN / 2, CAM_WIDHT / 2);
 			}
 		}
-		else
+		else if (stru->game.konami_code == 1)
 		{
 			collision(stru);
 			transparency(stru, stru->soso, CAM_LEN / 2, CAM_WIDHT / 2);
 		}
 	}
+	else
+		if (loading_sprites(stru))
+			quit(stru);
 	stru->frames++;
 	if (stru->frames > 55)
 		stru->frames = 0;
@@ -72,6 +75,8 @@ static int	key_presser(int val, t_struct *stru)
 		stru->game.left = 1;
 	if (val == XK_d)
 		stru->game.right = 1;
+	if (val == XK_Return && stru->selected == 0)
+		stru->selected = 1;
 	return (0);
 }
 
@@ -85,6 +90,26 @@ static int	key_releaser(int val, t_struct *stru)
 		stru->game.left = 0;
 	if (val == XK_d)
 		stru->game.right = 0;
+	if (val == XK_Right && stru->selected == 0)
+	{
+		transparency(stru, stru->black,
+			250 + (1920 / 4) * (stru->sarrow % 4) + 130,
+			200 + (1150 / 4) * (stru->sarrow / 4) - 30);
+		if (stru->sarrow != 11)
+			stru->sarrow++;
+		else
+			stru->sarrow = 0;
+	}
+	else if (val == XK_Left && stru->selected == 0)
+	{
+		transparency(stru, stru->black,
+			250 + (1920 / 4) * (stru->sarrow % 4) + 130,
+			200 + (1150 / 4) * (stru->sarrow / 4) - 30);
+		if (stru->sarrow != 0)
+			stru->sarrow--;
+		else
+			stru->sarrow = 11;
+	}
 	return (0);
 }
 
@@ -100,6 +125,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (sprites_init(&stru))
 		return (1);
+	mlx_do_key_autorepeatoff(stru.mlx);
 	stru.start = clock();
 	mlx_loop_hook(stru.mlx, &looped, &stru);
 	mlx_hook(stru.mlx_win, DestroyNotify, NoEventMask, &quit, &stru);
