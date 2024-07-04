@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/01 15:40:19 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/04 14:05:16 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,15 @@ typedef struct s_struct
 	void	*mlx;
 	void	*mlx_win;
 	char	**map;
+	int		selected;
+	int		sarrow;
 	int		frames;
 	int		cframes;
 	clock_t	start;
 	clock_t	end;
 	t_img	*floor;
 	t_img	*soso;
+	t_img	*black;
 	t_img	*select[12];
 	t_img	*arrow[5];
 	t_img	*water[8];
@@ -113,8 +116,8 @@ char	*ft_strdup(char *s);
 char	*get_next_line(int fd);
 int		quit(t_struct *stru);
 int		looped(t_struct *stru);
-int		selection(t_struct *stru);
 int		get_n_line(char *argv);
+int		selection(t_struct *stru);
 int		is_close(t_struct *stru);
 int		sprites_e(t_struct *stru);
 int		init_arrow(t_struct *stru);
@@ -122,12 +125,35 @@ int		finishable(t_struct *stru);
 int		sprites_c0(t_struct *stru);
 int		check_args(t_struct *stru);
 int		sprites_p0(t_struct *stru);
+int		sprites_p1(t_struct *stru);
+int		sprites_p2(t_struct *stru);
+int		sprites_p3(t_struct *stru);
+int		sprites_p4(t_struct *stru);
+int		sprites_p5(t_struct *stru);
+int		sprites_p6(t_struct *stru);
+int		sprites_p7(t_struct *stru);
+int		sprites_p8(t_struct *stru);
+int		sprites_p9(t_struct *stru);
+int		constructor(t_struct *stru);
+int		sprites_p10(t_struct *stru);
+int		sprites_p11(t_struct *stru);
 int		sprites_gc0(t_struct *stru);
 int		sprites_pw0(t_struct *stru);
-int		constructor(t_struct *stru);
+int		sprites_pw1(t_struct *stru);
+int		sprites_pw2(t_struct *stru);
+int		sprites_pw3(t_struct *stru);
+int		sprites_pw4(t_struct *stru);
+int		sprites_pw5(t_struct *stru);
+int		sprites_pw6(t_struct *stru);
+int		sprites_pw7(t_struct *stru);
+int		sprites_pw8(t_struct *stru);
+int		sprites_pw9(t_struct *stru);
+int		sprites_pw10(t_struct *stru);
+int		sprites_pw11(t_struct *stru);
 int		sprites_init(t_struct *stru);
 int		is_rectangle(t_struct *stru);
 int		check_extantion(char **argv);
+int		loading_sprites(t_struct *stru);
 int		init_portrait0(t_struct *stru);
 int		sprites_enemy0(t_struct *stru);
 int		map_open(char *argv, t_struct *stru);

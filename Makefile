@@ -1,8 +1,9 @@
 SRCS		=	./srcs/main.c ./srcs/error.c ./srcs/parsing.c ./srcs/libft_utils0.c ./srcs/libft_utils1.c ./srcs/gnl.c ./srcs/list0.c ./srcs/list1.c ./srcs/list2.c \
 				./srcs/constructor.c ./srcs/destructor0.c ./srcs/destructor1.c ./srcs/destructor2.c ./srcs/destructor3.c \
 				./srcs/sprites0.c ./srcs/sprites1.c ./srcs/sprites2.c ./srcs/sprites3.c ./srcs/sprites4.c ./srcs/sprites5.c ./srcs/sprites6.c \
-				./srcs/sprites7.c ./srcs/collision.c ./srcs/easter_egg.c ./srcs/steps_drawer.c ./srcs/flood_fill.c \
-				./srcs/enemy.c ./srcs/moves.c ./srcs/draw0.c ./srcs/draw1.c ./srcs/camera.c ./srcs/character_selection.c ./srcs/selection_portrait.c
+				./srcs/sprites7.c ./srcs/sprites8.c ./srcs/sprites9.c ./srcs/sprites10.c ./srcs/sprites11.c ./srcs/sprites12.c ./srcs/sprites13.c \
+				./srcs/enemy.c ./srcs/moves.c ./srcs/draw0.c ./srcs/draw1.c ./srcs/camera.c ./srcs/character_selection.c ./srcs/selection_portrait.c \
+				./srcs/steps_drawer.c ./srcs/flood_fill.c ./srcs/collision.c ./srcs/easter_egg.c
 
 OBJS		=	$(SRCS:.c=.o)
 
