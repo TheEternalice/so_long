@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 12:50:45 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/01 12:57:57 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:34:40 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,15 @@ int	check_error(int argc, char **argv, t_struct *stru)
 	else if (check_extantion(argv))
 		return (write(2, "Error\nInvalide file name\n", 25), 1);
 	else if (map_open(argv[1], stru))
-		return (free(stru->map), write(2, "Error\nDir found or no map\n", 26), 1);
+		return (write(2, "Error\nDir found or no map\n", 26), 1);
 	else if (is_rectangle(stru))
 		exit_free(stru, "Error\nInvalide map\n", 1);
 	else if (check_args(stru))
 		exit_free(stru, "Error\nInvalide map arg\n", 1);
-	else if (finishable(stru))
-		exit_free(stru, "Error\nNo path found to finish\n", 1);
 	else if (is_close(stru))
 		exit_free(stru, "Error\nInvalide map\n", 1);
+	else if (finishable(stru))
+		exit_free(stru, "Error\nNo path found to finish\n", 1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:42:11 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/04 13:46:04 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/05 14:59:22 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,13 @@ void	flood_fill(t_struct *stru, int x, int y)
 	if (stru->flood.map[y][x] == 'E')
 			stru->flood.exit++;
 	stru->flood.map[y][x] = 'F';
-	if (stru->flood.map[y][x + 1] != '1' && stru->flood.map[y][x + 1] != 'F' &&
-		stru->flood.map[y][x + 1] != 'S')
+	if (stru->flood.map[y][x + 1] != '1' && stru->flood.map[y][x + 1] != 'F')
 		flood_fill(stru, x + 1, y);
-	if (stru->flood.map[y][x - 1] != '1' && stru->flood.map[y][x - 1] != 'F' &&
-		stru->flood.map[y][x + 1] != 'S')
+	if (stru->flood.map[y][x - 1] != '1' && stru->flood.map[y][x - 1] != 'F')
 		flood_fill(stru, x - 1, y);
-	if (stru->flood.map[y + 1][x] != '1' && stru->flood.map[y + 1][x] != 'F' &&
-		stru->flood.map[y][x + 1] != 'S')
+	if (stru->flood.map[y + 1][x] != '1' && stru->flood.map[y + 1][x] != 'F')
 		flood_fill(stru, x, y + 1);
-	if (stru->flood.map[y - 1][x] != '1' && stru->flood.map[y - 1][x] != 'F' &&
-		stru->flood.map[y][x + 1] != 'S')
+	if (stru->flood.map[y - 1][x] != '1' && stru->flood.map[y - 1][x] != 'F')
 		flood_fill(stru, x, y - 1);
 }
 

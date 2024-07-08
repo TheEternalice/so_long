@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 11:17:19 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/01 14:16:25 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/08 15:28:41 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 
 static void	null_img_init6(t_struct *stru)
 {
+	int	i;
+
+	i = 0;
+	while (i < 55)
+	{
+		stru->waka[i] = NULL;
+		i++;
+	}
+	stru->soso = 0;
 	stru->coin[0] = NULL;
 	stru->coin[1] = NULL;
 	stru->coin[2] = NULL;
 	stru->coin[3] = NULL;
 	stru->coin[4] = NULL;
 	stru->coin[5] = NULL;
-	stru->waka[0] = NULL;
-	stru->waka[1] = NULL;
-	stru->waka[2] = NULL;
-	stru->waka[3] = NULL;
-	stru->waka[4] = NULL;
-	stru->waka[5] = NULL;
-	stru->waka[6] = NULL;
-	stru->waka[7] = NULL;
 	stru->select[0] = NULL;
 	stru->select[1] = NULL;
 	stru->select[2] = NULL;

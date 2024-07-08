@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 11:11:33 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:45:06 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int	map_open_helper(char *argv, t_struct *stru)
 	stru->flood.map = ft_calloc(sizeof(char *) * (get_n_line(argv) + 1),
 			(get_n_line(argv) + 1));
 	if (!stru->flood.map)
-		return (free_struct(stru), 1);
+		return (1);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 13:39:57 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/04 10:41:39 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/05 13:07:56 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	waka0(t_struct *stru)
 	i = 0;
 	while (i < 55)
 	{
-		strcpy(img_name, "./sprites/waka");
+		ft_strcpy(img_name, "./sprites/waka");
 		if (i >= 10)
 		{
 			img_name[14] = '0' + (i / 10);
@@ -52,7 +52,7 @@ int	waka0(t_struct *stru)
 			img_name[14] = '0' + i;
 			img_name[15] = '\0';
 		}
-		strcat(img_name, ".xpm");
+		ft_strcat(img_name, ".xpm");
 		if (waka1(stru, img_name, i))
 			return (1);
 		++i;

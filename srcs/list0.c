@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 11:46:02 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/06/26 11:22:43 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/08 12:44:08 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	init_stru(t_struct *stru)
 	stru->cframes = 0;
 	stru->flood.coin = 0;
 	stru->flood.exit = 0;
+	stru->map = 0;
+	stru->flood.map = 0;
 	stru->game.coin = 0;
 	stru->game.player = 0;
 	stru->game.exit = 0;

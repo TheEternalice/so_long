@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 13:46:16 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/04 14:05:16 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/05 13:08:58 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@
 #  define BUFFER_SIZE 1024
 # endif
 
-# ifndef CAM
-#  define CAM_LEN 1920
-#  define CAM_WIDHT 1020
-# endif
+# define CAM_LEN 1920
+# define CAM_WIDHT 1020
 
 # include <fcntl.h>
 # include <math.h>
@@ -114,6 +112,8 @@ typedef struct s_struct
 size_t	ft_strlen(char *str);
 char	*ft_strdup(char *s);
 char	*get_next_line(int fd);
+char	*ft_strcat(char *dest, char *src);
+char	*ft_strcpy(char *dest, char *src);
 int		quit(t_struct *stru);
 int		looped(t_struct *stru);
 int		get_n_line(char *argv);
@@ -158,6 +158,8 @@ int		init_portrait0(t_struct *stru);
 int		sprites_enemy0(t_struct *stru);
 int		map_open(char *argv, t_struct *stru);
 int		sprites_environment0(t_struct *stru);
+int		key_presser(int val, t_struct *stru);
+int		key_releaser(int val, t_struct *stru);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 int		check_error(int argc, char **argv, t_struct *stru);
 int		sprites_environment4(t_struct *stru, int wh, int he);
@@ -176,6 +178,7 @@ void	collision_enemy(t_struct *stru);
 void	image_destroyer4(t_struct *stru);
 void	image_destroyer9(t_struct *stru);
 void	image_destroyer14(t_struct *stru);
+void	image_destroyer17(t_struct *stru);
 void	easter_egg(int val, t_struct *stru);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	coin_get(t_struct *stru, int i, int j);
