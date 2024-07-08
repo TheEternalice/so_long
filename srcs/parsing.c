@@ -82,7 +82,7 @@ int	map_open(char *argv, t_struct *stru)
 
 	i = 0;
 	fd = open(argv, O_RDONLY);
-	if (!fd)
+	if (!fd || fd == -1)
 		return (1);
 	if (map_open_helper(argv, stru))
 		return (1);
