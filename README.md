@@ -11,7 +11,7 @@ The goal in the game is to collect every coins and find the exit. In the bonus p
   
   make
 
-  ./so_long map/...
+  ./so_long maps/...
 ```
 
 ## Usage
