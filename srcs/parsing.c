@@ -6,7 +6,7 @@
 /*   By: ade-rese <ade-rese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 10:48:13 by ade-rese          #+#    #+#             */
-/*   Updated: 2024/07/08 12:45:06 by ade-rese         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:00:29 by ade-rese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	check_extantion(char **argv)
 	int	i;
 
 	i = ft_strlen(argv[1]) - 4;
+	if (i < 0)
+		return (1);
 	if (!ft_strncmp(&argv[1][i], ".ber", 4))
 		return (0);
 	return (1);

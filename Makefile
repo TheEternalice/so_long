@@ -11,7 +11,7 @@ OBJS_BONUS	=	$(BONUS:.c=.o)
 
 CC			=	cc
 
-CFLAGS		=	-Wall -Wextra -Werror -g3
+CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -f
 
@@ -41,15 +41,7 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
-		@if [ -d "$(MLX_PATH)" ]; then \
-			rm -rf $(MLX_PATH); \
-		fi
 
 re: fclean all
-
-clone:
-		curl -o ./minilibx-linux.tgz https://cdn.intra.42.fr/document/document/21439/minilibx-linux.tgz
-		tar -xzf ./minilibx-linux.tgz -C ./
-		rm ./minilibx-linux.tgz
 
 .PHONY: all clean fclean re bonus clone
