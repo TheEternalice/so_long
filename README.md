@@ -8,9 +8,11 @@ The goal in the game is to collect every coins and find the exit. In the bonus p
 
 ```bash
   git clone git@github.com:TheEternalice/so_long.git
-  
+```
+```bash
   make
-
+```
+```bash
   ./so_long maps/...
 ```
 
