@@ -22,6 +22,3 @@ To play the controls are: ```left arrow```, ```right arrow``` and ```enter``` fo
 
 PS: you can found a secrect code in the game ;)
 
-
-https://github.com/user-attachments/assets/fbba751f-aa75-4e88-8ccb-5f2760bb8ff6
-
