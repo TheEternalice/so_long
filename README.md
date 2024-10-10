@@ -20,6 +20,6 @@ The goal in the game is to collect every coins and find the exit. In the bonus p
 
 To play the controls are: ```left arrow```, ```right arrow``` and ```enter``` for the character selection. And ```wasd``` to move in the game.
 
-PS: you can found a secrect code in the game ;)
-
 ![Screencastfrom10-10-202403-14-26PM-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/5504ce8c-3caa-4588-b32e-e65ed8f4ccd4)
+
+PS: you can found a secrect code in the game ;)
