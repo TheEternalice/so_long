@@ -7,7 +7,7 @@ The goal in the game is to collect every coins and find the exit. In the bonus p
 ## Installation and running
 
 ```bash
-  git clone git@github.com:TheEternalice/so_long.git
+  git clone https://github.com/TheEternalice/so_long.git
 ```
 ```bash
   make
